@@ -20,6 +20,7 @@ import com.gmail.nossr50.skills.fishing.FishingManager;
 import com.gmail.nossr50.skills.herbalism.HerbalismManager;
 import com.gmail.nossr50.skills.mining.MiningManager;
 import com.gmail.nossr50.skills.repair.RepairManager;
+import com.gmail.nossr50.skills.salvage.SalvageManager;
 import com.gmail.nossr50.skills.smelting.SmeltingManager;
 import com.gmail.nossr50.skills.swords.SwordsManager;
 import com.gmail.nossr50.skills.taming.TamingManager;
@@ -40,6 +41,7 @@ public enum SkillType {
     HERBALISM(HerbalismManager.class, Color.GREEN, AbilityType.GREEN_TERRA, ToolType.HOE),
     MINING(MiningManager.class, Color.GRAY, AbilityType.SUPER_BREAKER, ToolType.PICKAXE),
     REPAIR(RepairManager.class, Color.SILVER),
+    SALVAGE(SalvageManager.class, Color.ORANGE),
     SMELTING(SmeltingManager.class, Color.YELLOW),
     SWORDS(SwordsManager.class, Color.fromRGB(178, 34, 34), AbilityType.SERRATED_STRIKES, ToolType.SWORD),
     TAMING(TamingManager.class, Color.PURPLE),
@@ -172,6 +174,7 @@ public enum SkillType {
     // TODO: This is a little "hacky", we probably need to add something to distinguish child skills in the enum, or to use another enum for them
     public boolean isChildSkill() {
         switch (this) {
+            case SALVAGE:
             case SMELTING:
                 return true;
 

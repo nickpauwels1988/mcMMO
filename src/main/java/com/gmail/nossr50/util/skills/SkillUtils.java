@@ -19,6 +19,8 @@ import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.datatypes.skills.AbilityType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
+import com.gmail.nossr50.skills.repair.Repair;
+import com.gmail.nossr50.skills.salvage.Salvage;
 import com.gmail.nossr50.util.ItemUtils;
 import com.gmail.nossr50.util.Misc;
 import com.gmail.nossr50.util.StringUtils;
@@ -197,5 +199,17 @@ public class SkillUtils {
         }
 
         return false;
+    }
+
+    private static String getAnvilMessage(Material type) {
+        if (type == Repair.anvilMaterial) {
+            return LocaleLoader.getString("Repair.Listener.Anvil");
+        }
+
+        if (type == Salvage.anvilMaterial) {
+            return LocaleLoader.getString("Repair.Listener.Anvil2");
+        }
+
+        return "";
     }
 }

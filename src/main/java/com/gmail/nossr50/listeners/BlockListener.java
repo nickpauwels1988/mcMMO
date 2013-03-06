@@ -113,7 +113,9 @@ public class BlockListener implements Listener {
         }
 
         if (Repair.anvilMessagesEnabled && BlockUtils.isMcMMOAnvil(blockState)) {
-            UserManager.getPlayer(player).getRepairManager().placedAnvilCheck(blockState.getType());
+            McMMOPlayer mcMMOPlayer = UserManager.getPlayer(player);
+            mcMMOPlayer.getRepairManager().placedAnvilCheck(blockState.getType());
+            mcMMOPlayer.getSalvageManager().placedAnvilCheck(blockState.getType());
         }
     }
 

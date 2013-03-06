@@ -3,7 +3,6 @@ package com.gmail.nossr50.skills.repair;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
@@ -21,6 +20,7 @@ import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.SkillManager;
 import com.gmail.nossr50.skills.repair.ArcaneForging.Tier;
 import com.gmail.nossr50.skills.repair.repairables.Repairable;
+import com.gmail.nossr50.skills.salvage.Salvage;
 import com.gmail.nossr50.util.EventUtils;
 import com.gmail.nossr50.util.Misc;
 import com.gmail.nossr50.util.Permissions;
@@ -30,8 +30,6 @@ import com.gmail.nossr50.util.skills.SkillUtils;
 public class RepairManager extends SkillManager {
     private boolean placedRepairAnvil;
     private int     lastRepairClick;
-    private boolean placedSalvageAnvil;
-    private int     lastSalvageClick;
 
     public RepairManager(McMMOPlayer mcMMOPlayer) {
         super(mcMMOPlayer, SkillType.REPAIR);
@@ -49,7 +47,7 @@ public class RepairManager extends SkillManager {
             return;
         }
 
-        player.sendMessage(Repair.getAnvilMessage(anvilType));
+        player.sendMessage(LocaleLoader.getString("Repair.Listener.Anvil"));
 
         player.playSound(player.getLocation(), Sound.ANVIL_LAND, Misc.ANVIL_USE_VOLUME, Misc.ANVIL_USE_PITCH);
         togglePlacedAnvil(anvilType);
@@ -151,28 +149,6 @@ public class RepairManager extends SkillManager {
         return ((startDurability - newDurability) / (float) totalDurability);
     }
 
-    public void handleSalvage(Location location, ItemStack item) {
-        Player player = getPlayer();
-
-        if (getSkillLevel() < Repair.salvageUnlockLevel) {
-            player.sendMessage(LocaleLoader.getString("Repair.Skills.AdeptSalvage"));
-            return;
-        }
-
-        if (item.getDurability() == 0) {
-            player.setItemInHand(new ItemStack(Material.AIR));
-            location.setY(location.getY() + 1);
-
-            Misc.dropItems(location, new ItemStack(Repair.getSalvagedItem(item)), Repair.getSalvagedAmount(item) * item.getAmount());
-
-            player.playSound(player.getLocation(), Sound.ANVIL_USE, Misc.ANVIL_USE_VOLUME, Misc.ANVIL_USE_PITCH);
-            player.sendMessage(LocaleLoader.getString("Repair.Skills.SalvageSuccess"));
-        }
-        else {
-            player.sendMessage(LocaleLoader.getString("Repair.Skills.NotFullDurability"));
-        }
-    }
-
     /**
      * Check if the player has tried to use an Anvil before.
      *
@@ -192,10 +168,10 @@ public class RepairManager extends SkillManager {
 
         actualizeLastAnvilUse(anvilType);
 
-        if (anvilType == Repair.repairAnvilMaterial) {
+        if (anvilType == Repair.anvilMaterial) {
             player.sendMessage(LocaleLoader.getString("Skills.ConfirmOrCancel", LocaleLoader.getString("Repair.Pretty.Name")));
         }
-        else if (anvilType == Repair.salvageAnvilMaterial) {
+        else if (anvilType == Salvage.anvilMaterial) {
             player.sendMessage(LocaleLoader.getString("Skills.ConfirmOrCancel", LocaleLoader.getString("Salvage.Pretty.Name")));
         }
 
@@ -357,24 +333,16 @@ public class RepairManager extends SkillManager {
      */
 
     public boolean getPlacedAnvil(Material anvilType) {
-        if (anvilType == Repair.repairAnvilMaterial) {
+        if (anvilType == Repair.anvilMaterial) {
             return placedRepairAnvil;
-        }
-
-        if (anvilType == Repair.salvageAnvilMaterial) {
-            return placedSalvageAnvil;
         }
 
         return true;
     }
 
     public void togglePlacedAnvil(Material anvilType) {
-        if (anvilType == Repair.repairAnvilMaterial) {
+        if (anvilType == Repair.anvilMaterial) {
             placedRepairAnvil = !placedRepairAnvil;
-        }
-
-        if (anvilType == Repair.salvageAnvilMaterial) {
-            placedSalvageAnvil = !placedSalvageAnvil;
         }
     }
 
@@ -383,34 +351,22 @@ public class RepairManager extends SkillManager {
      */
 
     public int getLastAnvilUse(Material anvilType) {
-        if (anvilType == Repair.repairAnvilMaterial) {
+        if (anvilType == Repair.anvilMaterial) {
             return lastRepairClick;
-        }
-
-        if (anvilType == Repair.salvageAnvilMaterial) {
-            return lastSalvageClick;
         }
 
         return 0;
     }
 
     public void setLastAnvilUse(Material anvilType, int value) {
-        if (anvilType == Repair.repairAnvilMaterial) {
+        if (anvilType == Repair.anvilMaterial) {
             lastRepairClick = value;
-        }
-
-        if (anvilType == Repair.salvageAnvilMaterial) {
-            lastSalvageClick = value;
         }
     }
 
     public void actualizeLastAnvilUse(Material anvilType) {
-        if (anvilType == Repair.repairAnvilMaterial) {
+        if (anvilType == Repair.anvilMaterial) {
             lastRepairClick = (int) (System.currentTimeMillis() / Misc.TIME_CONVERSION_FACTOR);
-        }
-
-        if (anvilType == Repair.salvageAnvilMaterial) {
-            lastSalvageClick = (int) (System.currentTimeMillis() / Misc.TIME_CONVERSION_FACTOR);
         }
     }
 }
