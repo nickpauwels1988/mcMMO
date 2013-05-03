@@ -14,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.gmail.nossr50.config.AdvancedConfig;
 import com.gmail.nossr50.config.Config;
 import com.gmail.nossr50.config.HiddenConfig;
+import com.gmail.nossr50.config.experience.ExperienceConfig;
 import com.gmail.nossr50.config.mods.CustomArmorConfig;
 import com.gmail.nossr50.config.mods.CustomBlockConfig;
 import com.gmail.nossr50.config.mods.CustomEntityConfig;
@@ -35,6 +36,7 @@ import com.gmail.nossr50.party.PartyManager;
 import com.gmail.nossr50.runnables.SaveTimerTask;
 import com.gmail.nossr50.runnables.database.UserPurgeTask;
 import com.gmail.nossr50.runnables.party.PartyAutoKickTask;
+import com.gmail.nossr50.runnables.player.ClearRegisteredXPGainTask;
 import com.gmail.nossr50.runnables.skills.BleedTimerTask;
 import com.gmail.nossr50.skills.child.ChildConfig;
 import com.gmail.nossr50.skills.repair.Repairable;
@@ -51,6 +53,7 @@ import com.gmail.nossr50.util.commands.CommandRegistrationManager;
 import com.gmail.nossr50.util.experience.FormulaManager;
 import com.gmail.nossr50.util.player.UserManager;
 import com.gmail.nossr50.util.spout.SpoutUtils;
+import net.shatteredlands.shatt.backup.ZipLibrary;
 
 import net.h31ix.updater.Updater;
 import net.h31ix.updater.Updater.UpdateResult;
@@ -392,6 +395,13 @@ public class mcMMO extends JavaPlugin {
         }
         else if (kickIntervalTicks > 0) {
             new PartyAutoKickTask().runTaskTimer(this, kickIntervalTicks, kickIntervalTicks);
+        }
+
+        // Clear the registered XP data so players can earn XP again
+        long clearRegisteredXPGainInterval = ExperienceConfig.getInstance().getExperienceDeminishedReturnsTimeInterval() * 60 * 20;
+
+        if (kickIntervalTicks > 0 && ExperienceConfig.getInstance().getExperienceDeminishedReturnsThreshold() > 0) {
+            new ClearRegisteredXPGainTask().runTaskTimer(this, clearRegisteredXPGainInterval, clearRegisteredXPGainInterval);
         }
     }
 }

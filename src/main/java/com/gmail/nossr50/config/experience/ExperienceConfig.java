@@ -155,6 +155,10 @@ public class ExperienceConfig extends AutoUpdateConfigLoader {
     /* Spawned Mob modifier */
     public double getSpawnedMobXpMultiplier() { return config.getDouble("Experience_Formula.Mobspawners.Multiplier", 0.0); }
 
+    /* Deminished Returns */
+    public int getExperienceDeminishedReturnsThreshold() { return config.getInt("Experience.Gains.Deminished_Returns.Threshold", 20000); }
+    public int getExperienceDeminishedReturnsTimeInterval() { return config.getInt("Experience.Gains.Deminished_Returns.Time_Interval", 10); }
+
     /* Skill modifiers */
     public double getFormulaSkillModifier(SkillType skill) { return config.getDouble("Experience_Formula.Modifier." + StringUtils.getCapitalized(skill.toString())); }
 
