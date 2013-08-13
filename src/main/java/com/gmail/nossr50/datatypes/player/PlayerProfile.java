@@ -43,6 +43,9 @@ public class PlayerProfile {
     private HashMap<SkillType, LinkedList<SkillXpGain>> gainedSkillsXp = new HashMap<SkillType, LinkedList<SkillXpGain>>();
     private HashMap<SkillType, Float> rollingSkillsXp = new HashMap<SkillType, Float>();
 
+    // Store highest XP gains in 10 minutes for debug purposes
+    private HashMap<SkillType, Float> highestGainedXP = new HashMap<SkillType, Float>();
+
     public PlayerProfile(String playerName) {
         this.playerName = playerName;
 
@@ -326,6 +329,7 @@ public class PlayerProfile {
      */
     public void removeXpGainsOlderThan(long age) {
         long now = System.currentTimeMillis();
+        boolean print = true;
 
         Iterator<Entry<SkillType, LinkedList<SkillXpGain>>> iterator = gainedSkillsXp.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -343,6 +347,18 @@ public class PlayerProfile {
                 }
                 else {
                     break;
+                }
+            }
+            SkillType skillType = skillGains.getKey();
+            if (getRegisteredXpGain(skillType) > 0) {
+                if (!highestGainedXP.containsKey(skillType) || (getRegisteredXpGain(skillType) > highestGainedXP.get(skillType))) {
+                    highestGainedXP.put(skillType, getRegisteredXpGain(skillType));
+
+                    if (print) {
+                        mcMMO.p.debug("New maximum amount of XP Earned in 10 minutes: " + playerName + "...");
+                    }
+                    print = false;
+                    mcMMO.p.debug("SkillType: " + skillType + " xp = " + getRegisteredXpGain(skillType));
                 }
             }
             rollingSkillsXp.put(skillGains.getKey(), rollingSkillsXp.get(skillGains.getKey()) - xp);
