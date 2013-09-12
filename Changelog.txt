@@ -18,6 +18,8 @@ Version 1.4.07-dev
  + Added snow to Excavation blocks
  + Added new experience curve option. Cumulative curve, calculates experience needed for next level using power level.
  + Added extra settings to config.yml for "Call of the Wild" (Taming)
+ + Added particle effects and sounds to "Call of the Wild" (Taming)
+ + Added summon length to "Call of the Wild". Summons will not commit suicide after their lifespan expires
  + Added a 5 second cooldown after teleporting before Acrobatics XP can be earned. Plus a config option to disable
  + Added new API methods to ExperienceAPI to get a players rank on the leaderboards
  + Added new McMMOPlayerDeathPenaltyEvent, fired when a player dies and would lose levels

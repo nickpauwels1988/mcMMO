@@ -1,5 +1,7 @@
 package com.gmail.nossr50.skills.taming;
 
+import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -20,6 +22,7 @@ import com.gmail.nossr50.util.Misc;
 import com.gmail.nossr50.util.Permissions;
 import com.gmail.nossr50.util.StringUtils;
 import com.gmail.nossr50.util.skills.CombatUtils;
+import com.gmail.nossr50.util.skills.ParticleEffectUtils;
 import com.gmail.nossr50.util.skills.SkillUtils;
 
 public class TamingManager extends SkillManager {
@@ -204,6 +207,7 @@ public class TamingManager extends SkillManager {
 
         ItemStack heldItem = player.getItemInHand();
         int heldItemAmount = heldItem.getAmount();
+        Location location = player.getLocation();
 
         if (heldItemAmount < summonAmount) {
             player.sendMessage(LocaleLoader.getString("Skills.NeedMore", StringUtils.getPrettyItemString(heldItem.getType())));
@@ -215,12 +219,17 @@ public class TamingManager extends SkillManager {
         }
 
         int amount = Config.getInstance().getTamingCOTWAmount(type);
+        int tamingCOTWLength = Config.getInstance().getTamingCOTWLength(type);
 
         for (int i = 0; i < amount; i++) {
-            LivingEntity entity = (LivingEntity) player.getWorld().spawnEntity(player.getLocation(), type);
+            LivingEntity entity = (LivingEntity) player.getWorld().spawnEntity(location, type);
 
             entity.setMetadata(mcMMO.entityMetadataKey, mcMMO.metadataValue);
             ((Tameable) entity).setOwner(player);
+
+            if (tamingCOTWLength > 0) {
+                Taming.addToTracker(entity);
+            }
 
             switch (type) {
                 case OCELOT:
@@ -240,10 +249,19 @@ public class TamingManager extends SkillManager {
                 entity.setCustomName(LocaleLoader.getString("Taming.Summon.Name.Format", player.getName(), StringUtils.getPrettyEntityTypeString(type)));
                 entity.setCustomNameVisible(true);
             }
+
+            ParticleEffectUtils.playCallOfTheWildEffect(entity);
         }
 
         player.setItemInHand(new ItemStack(heldItem.getType(), heldItemAmount - summonAmount));
-        player.sendMessage(LocaleLoader.getString("Taming.Summon.Complete"));
+
+        String lifeSpan = "";
+        if (tamingCOTWLength > 0) {
+            lifeSpan = LocaleLoader.getString("Taming.Summon.Lifespan", tamingCOTWLength);
+        }
+
+        player.sendMessage(LocaleLoader.getString("Taming.Summon.Complete") + lifeSpan);
+        player.playSound(location, Sound.FIREWORK_LARGE_BLAST2, 1F, 0.5F);
     }
 
     private boolean rangeCheck(EntityType type) {
