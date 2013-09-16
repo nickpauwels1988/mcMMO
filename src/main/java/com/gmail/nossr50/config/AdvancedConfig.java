@@ -1025,6 +1025,8 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
     public int getSharpenedClawsUnlock() { return config.getInt("Skills.Taming.SharpenedClaws_UnlockLevel", 750); }
     public double getSharpenedClawsBonus() { return config.getDouble("Skills.Taming.SharpenedClaws_Bonus", 2.0D); }
 
+    public int getChargeUnlock() { return config.getInt("Skills.Taming.Charge_UnlockLevel", 50); }
+
     /* UNARMED */
     public double getDisarmChanceMax() { return config.getDouble("Skills.Unarmed.Disarm_ChanceMax", 33.0D); }
     public int getDisarmMaxBonusLevel() { return config.getInt("Skills.Unarmed.Disarm_MaxBonusLevel", 1000); }

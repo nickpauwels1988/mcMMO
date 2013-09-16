@@ -206,6 +206,7 @@ public final class Permissions {
     public static boolean thickFur(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.taming.thickfur"); }
     public static boolean sharpenedClaws(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.taming.sharpenedclaws"); }
     public static boolean shockProof(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.taming.shockproof"); }
+    public static boolean charge(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.taming.charge"); }
 
     /* UNARMED */
     public static boolean arrowDeflect(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.unarmed.deflect"); }
