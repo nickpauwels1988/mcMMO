@@ -8,7 +8,11 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.MaterialData;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -19,8 +23,7 @@ import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.datatypes.skills.AbilityType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
-import com.gmail.nossr50.skills.repair.Repair;
-import com.gmail.nossr50.skills.salvage.Salvage;
+import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.util.ItemUtils;
 import com.gmail.nossr50.util.Misc;
 import com.gmail.nossr50.util.StringUtils;
@@ -201,15 +204,30 @@ public class SkillUtils {
         return false;
     }
 
-    private static String getAnvilMessage(Material type) {
-        if (type == Repair.anvilMaterial) {
-            return LocaleLoader.getString("Repair.Listener.Anvil");
+    public static int getRepairAndSalvageQuantities(ItemStack item) {
+        return getRepairAndSalvageQuantities(item, null, (byte) -1);
+    }
+
+    public static int getRepairAndSalvageQuantities(ItemStack item, Material repairMaterial, byte repairMetadata) {
+        int quantity = 0;
+        MaterialData repairData = repairMaterial != null ? new MaterialData(repairMaterial, repairMetadata) : null;
+        Recipe recipe = mcMMO.p.getServer().getRecipesFor(item).get(0);
+
+        if (recipe instanceof ShapelessRecipe) {
+            for (ItemStack ingredient : ((ShapelessRecipe) recipe).getIngredientList()) {
+                if (ingredient != null && (repairMaterial == null || ingredient.getType() == repairMaterial) && (repairMetadata == -1 || ingredient.getData().equals(repairData))) {
+                    quantity += ingredient.getAmount();
+                }
+            }
+        }
+        else if (recipe instanceof ShapedRecipe) {
+            for (ItemStack ingredient : ((ShapedRecipe) recipe).getIngredientMap().values()) {
+                if (ingredient != null && (repairMaterial == null || ingredient.getType() == repairMaterial) && (repairMetadata == -1 || ingredient.getData().equals(repairData))) {
+                    quantity += ingredient.getAmount();
+                }
+            }
         }
 
-        if (type == Salvage.anvilMaterial) {
-            return LocaleLoader.getString("Repair.Listener.Anvil2");
-        }
-
-        return "";
+        return quantity;
     }
 }

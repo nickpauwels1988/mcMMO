@@ -9,12 +9,12 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.nossr50.config.ConfigLoader;
-import com.gmail.nossr50.skills.repair.Repair;
 import com.gmail.nossr50.skills.repair.repairables.RepairItemType;
 import com.gmail.nossr50.skills.repair.repairables.RepairMaterialType;
 import com.gmail.nossr50.skills.repair.repairables.Repairable;
 import com.gmail.nossr50.skills.repair.repairables.RepairableFactory;
 import com.gmail.nossr50.util.ItemUtils;
+import com.gmail.nossr50.util.skills.SkillUtils;
 
 public class RepairConfig extends ConfigLoader {
     private List<Repairable> repairables;
@@ -132,10 +132,10 @@ public class RepairConfig extends ConfigLoader {
             }
 
             // Minimum Quantity
-            int minimumQuantity = (itemMaterial != null && repairMaterial != null ? Repair.getRepairAndSalvageQuantities(new ItemStack(itemMaterial), repairMaterial, repairMetadata) : config.getInt("Repairables." + key + ".MinimumQuantity"));
+            int minimumQuantity = (itemMaterial != null && repairMaterial != null ? SkillUtils.getRepairAndSalvageQuantities(new ItemStack(itemMaterial), repairMaterial, repairMetadata) : config.getInt("Repairables." + key + ".MinimumQuantity"));
 
             if (minimumQuantity <= 0 && itemMaterial != null) {
-                minimumQuantity = Repair.getRepairAndSalvageQuantities(new ItemStack(itemMaterial));
+                minimumQuantity = SkillUtils.getRepairAndSalvageQuantities(new ItemStack(itemMaterial));
             }
 
             if (minimumQuantity <= 0) {
