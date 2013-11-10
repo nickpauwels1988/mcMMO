@@ -33,6 +33,23 @@ public final class HardcoreManager {
 
             playerProfile.modifySkill(skillType, playerSkillLevel - levelsLost);
             playerProfile.removeXp(skillType, xpLost);
+
+            // Negative checks (this feels inefficent...)
+            playerSkillXpLevel = playerProfile.getSkillXpLevel(skillType);
+            playerSkillLevel = playerProfile.getSkillLevel(skillType);
+            while (playerSkillXpLevel < 0) {
+                totalLevelsLost++;
+                playerProfile.modifySkill(skillType, playerSkillLevel - 1);
+                playerSkillLevel--;
+
+                playerSkillXpLevel += playerProfile.getXpToLevel(skillType);
+            }
+            playerProfile.setSkillXpLevel(skillType, playerSkillXpLevel);
+            if (playerSkillLevel < 0) {
+                totalLevelsLost += playerSkillLevel; // rebalance total
+                playerProfile.modifySkill(skillType, 0);
+                playerProfile.setSkillXpLevel(skillType, 0);
+            }
         }
 
         player.sendMessage(LocaleLoader.getString("Hardcore.DeathStatLoss.PlayerDeath", totalLevelsLost));
@@ -66,6 +83,23 @@ public final class HardcoreManager {
 
             victimProfile.modifySkill(skillType, victimSkillLevel - levelsStolen);
             victimProfile.removeXp(skillType, xpStolen);
+
+            // Negative checks (this feels inefficent...)
+            victimSkillXpLevel = victimProfile.getSkillXpLevel(skillType);
+            victimSkillLevel = victimProfile.getSkillLevel(skillType);
+            while (victimSkillXpLevel < 0) {
+                totalLevelsStolen++;
+                victimProfile.modifySkill(skillType, victimSkillLevel - 1);
+                victimSkillLevel--;
+
+                victimSkillXpLevel += victimProfile.getXpToLevel(skillType);
+            }
+            victimProfile.setSkillXpLevel(skillType, victimSkillXpLevel);
+            if (victimSkillLevel < 0) {
+                totalLevelsStolen += victimSkillLevel; // rebalance total
+                victimProfile.modifySkill(skillType, 0);
+                victimProfile.setSkillXpLevel(skillType, 0);
+            }
         }
 
         if (totalLevelsStolen > 0) {
