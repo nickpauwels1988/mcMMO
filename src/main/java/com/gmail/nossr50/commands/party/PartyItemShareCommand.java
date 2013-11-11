@@ -17,12 +17,12 @@ import com.gmail.nossr50.util.player.UserManager;
 public class PartyItemShareCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!Config.getInstance().getItemShareEnabled()) {
+        Party party = UserManager.getPlayer((Player) sender).getParty();
+
+        if (party.getLevel() < Config.getInstance().getItemShareUnlockLevel()) {
             sender.sendMessage(LocaleLoader.getString("Party.ItemShare.Disabled"));
             return true;
         }
-
-        Party party = UserManager.getPlayer((Player) sender).getParty();
 
         switch (args.length) {
             case 2:

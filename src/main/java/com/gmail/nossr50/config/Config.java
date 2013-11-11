@@ -338,12 +338,18 @@ public class Config extends AutoUpdateConfigLoader {
     /* PARTY SETTINGS */
     public int getAutoPartyKickInterval() { return config.getInt("Party.AutoKick_Interval", 12); }
     public int getAutoPartyKickTime() { return config.getInt("Party.Old_Party_Member_Cutoff", 7); }
-    public boolean getExpShareEnabled() { return config.getBoolean("Party.Sharing.ExpShare_enabled", true); }
+
     public double getPartyShareBonusBase() { return config.getDouble("Party.Sharing.ExpShare_bonus_base", 1.1D); }
     public double getPartyShareBonusIncrease() { return config.getDouble("Party.Sharing.ExpShare_bonus_increase", 0.05D); }
     public double getPartyShareBonusCap() { return config.getDouble("Party.Sharing.ExpShare_bonus_cap", 1.5D); }
-    public boolean getItemShareEnabled() { return config.getBoolean("Party.Sharing.ItemShare_enabled", true); }
     public double getPartyShareRange() { return config.getDouble("Party.Sharing.Range", 75.0D); }
+
+    public int getPartyLevelCap() { return config.getInt("Party.Sharing.Level_Cap", 10); }
+    public int getPartyChatUnlockLevel() { return config.getInt("Party.Sharing.PartyChat_UnlockLevel", 1); }
+    public int getPartyTeleportUnlockLevel() { return config.getInt("Party.Sharing.PartyTeleport_UnlockLevel", 2); }
+    public int getItemShareUnlockLevel() { return config.getInt("Party.Sharing.ItemShare_UnlockLevel", 5); }
+    public int getPartyAllianceUnlockLevel() { return config.getInt("Party.Sharing.PartyAlliance_UnlockLevel", 5); }
+    public int getXpShareUnlockLevel() { return config.getInt("Party.Sharing.XpShare_UnlockLevel", 10); }
 
     /* Party Teleport Settings */
     public int getPTPCommandCooldown() { return config.getInt("Commands.ptp.Cooldown", 120); }
