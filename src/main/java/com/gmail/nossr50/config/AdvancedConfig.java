@@ -104,12 +104,12 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Acrobatics.Daze.BonusDamage should be at least 0!");
         }
 
-        if (PassiveAbility.TRACK_ARROWS.getMaxChance() < 1) {
-            reason.add("Skills.Acrobatics.TrackArrows.ChanceMax should be at least 1!");
+        if (PassiveAbility.RETRIEVE.getMaxChance() < 1) {
+            reason.add("Skills.Acrobatics.Retrieve.ChanceMax should be at least 1!");
         }
 
-        if (PassiveAbility.TRACK_ARROWS.getMaxLevel() < 1) {
-            reason.add("Skills.Acrobatics.TrackArrows.MaxBonusLevel should be at least 1!");
+        if (PassiveAbility.RETRIEVE.getMaxLevel() < 1) {
+            reason.add("Skills.Acrobatics.Retrieve.MaxBonusLevel should be at least 1!");
         }
 
         if (getForceMultiplier() < 0) {

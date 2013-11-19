@@ -12,7 +12,7 @@ public enum PassiveAbility {
     ROLL,
 
     /* ARCHERY */
-    TRACK_ARROWS,
+    RETRIEVE,
     DAZE,
 
     /* Axes */

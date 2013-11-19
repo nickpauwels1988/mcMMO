@@ -34,8 +34,8 @@ public class ArcheryManager extends SkillManager {
         return getSkillLevel() >= Archery.skillShotIncreaseLevel && Permissions.bonusDamage(getPlayer(), skill);
     }
 
-    public boolean canTrackArrows() {
-        return PassiveAbility.TRACK_ARROWS.hasPermission(getPlayer());
+    public boolean canRetrieveArrows() {
+        return PassiveAbility.RETRIEVE.hasPermission(getPlayer());
     }
 
     /**
@@ -60,8 +60,8 @@ public class ArcheryManager extends SkillManager {
      *
      * @param target The {@link LivingEntity} damaged by the arrow
      */
-    public void trackArrows(LivingEntity target) {
-        if (SkillUtils.activationSuccessful(PassiveAbility.TRACK_ARROWS, getPlayer(), getSkillLevel(), getActivationChance())) {
+    public void retrieveArrows(LivingEntity target) {
+        if (SkillUtils.activationSuccessful(PassiveAbility.RETRIEVE, getPlayer(), getSkillLevel(), getActivationChance())) {
             Archery.incrementTrackerValue(target);
         }
     }

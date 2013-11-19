@@ -177,12 +177,12 @@ permissions:
         children:
             mcmmo.ability.archery.bonusdamage: true
             mcmmo.ability.archery.daze: true
-            mcmmo.ability.archery.trackarrows: true
+            mcmmo.ability.archery.retrieve: true
     mcmmo.ability.archery.bonusdamage:
         description: Allows bonus damage from Archery
     mcmmo.ability.archery.daze:
         description: Allows access to the Daze ability
-    mcmmo.ability.archery.trackarrows:
+    mcmmo.ability.archery.retrieve:
         description: Allows tracking & retrieval of arrows
     mcmmo.ability.axes.*:
         default: false
