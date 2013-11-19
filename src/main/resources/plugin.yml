@@ -1843,3 +1843,27 @@ permissions:
     mcmmo.tools.updatecheck:
         default: false
         description: Notifies admins if there is a new version of mcMMO available
+    mcmmo.ability.fishing.shakemob:
+        description: deprecated
+        children:
+            mcmmo.ability.fishing.shake: true
+    mcmmo.ability.axes.impact:
+        description: deprecated
+        children:
+            mcmmo.ability.axes.armorimpact: true
+    mcmmo.ability.taming.fastfoodservice:
+        description: deprecated
+        children:
+            mcmmo.ability.taming.fastfood: true
+    mcmmo.ability.archery.trackarrows:
+        description: deprecated
+        children:
+            mcmmo.ability.archery.retrieve: true
+    mcmmo.ability.repair.repairbonus:
+        description: deprecated
+        children:
+            mcmmo.ability.repair.superrepair: true
+    mcmmo.ability.swords.counterattack:
+        description: deprecated
+        children:
+            mcmmo.ability.swords.counter: true
