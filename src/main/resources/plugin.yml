@@ -195,7 +195,7 @@ permissions:
             mcmmo.ability.axes.bonusdamage: true
             mcmmo.ability.axes.criticalhit: true
             mcmmo.ability.axes.greaterimpact: true
-            mcmmo.ability.axes.impact: true
+            mcmmo.ability.axes.armorimpact: true
             mcmmo.ability.axes.skullsplitter: true
     mcmmo.ability.axes.bonusdamage:
         description: Allows bonus damage from Axes
@@ -203,7 +203,7 @@ permissions:
         description: Allows access to the Critical Hit ability
     mcmmo.ability.axes.greaterimpact:
         description: Allows access to the Greater Impact ability
-    mcmmo.ability.axes.impact:
+    mcmmo.ability.axes.armorimpact:
         description: Allows access to the Impact ability
     mcmmo.ability.axes.skullsplitter:
         description: Allows access to the Skull Splitter ability
@@ -260,7 +260,7 @@ permissions:
             mcmmo.ability.fishing.icefishing: true
             mcmmo.ability.fishing.magic: true
             mcmmo.ability.fishing.masterangler: true
-            mcmmo.ability.fishing.shakemob: true
+            mcmmo.ability.fishing.shake: true
             mcmmo.ability.fishing.treasures: true
             mcmmo.ability.fishing.vanillaxpboost: true
     mcmmo.ability.fishing.fishermansdiet:
@@ -271,7 +271,7 @@ permissions:
         description: Allows enchanted drops from Fishing
     mcmmo.ability.fishing.masterangler:
         description: Allows access to the Master Angler ability
-    mcmmo.ability.fishing.shakemob:
+    mcmmo.ability.fishing.shake:
         description: Allows access to the Shake Mob ability
     mcmmo.ability.fishing.treasures:
         description: Allows treasure drops from Fishing
@@ -455,7 +455,7 @@ permissions:
         description: Allows ability to repair items of material type OTHER
     mcmmo.ability.repair.otherrepair:
         description: Allows ability to repair items of type OTHER
-    mcmmo.ability.repair.repairbonus:
+    mcmmo.ability.repair.superrepair:
         description: Allows access to Super Repair bonus
     mcmmo.ability.repair.repairmastery:
         description: Allows access to Repair Mastery
@@ -503,11 +503,11 @@ permissions:
         description: Allows access to all Swords abilities
         children:
             mcmmo.ability.swords.bleed: true
-            mcmmo.ability.swords.counterattack: true
+            mcmmo.ability.swords.counter: true
             mcmmo.ability.swords.serratedstrikes: true
     mcmmo.ability.swords.bleed:
         description: Allows access to the Bleed ability
-    mcmmo.ability.swords.counterattack:
+    mcmmo.ability.swords.counter:
         description: Allows access to the Counter Attack ability
     mcmmo.ability.swords.serratedstrikes:
         description: Allows access to the Serrated Strikes ability
@@ -522,7 +522,7 @@ permissions:
             mcmmo.ability.taming.beastlore: true
             mcmmo.ability.taming.callofthewild.all: true
             mcmmo.ability.taming.environmentallyaware: true
-            mcmmo.ability.taming.fastfoodservice: true
+            mcmmo.ability.taming.fastfood: true
             mcmmo.ability.taming.gore: true
             mcmmo.ability.taming.holyhound: true
             mcmmo.ability.taming.sharpenedclaws: true
@@ -562,7 +562,7 @@ permissions:
             mcmmo.ability.taming.callofthewild.renamepets: true
     mcmmo.ability.taming.environmentallyaware:
         description: Allows access to the Environmentally Aware ability
-    mcmmo.ability.taming.fastfoodservice:
+    mcmmo.ability.taming.fastfood:
         description: Allows access to the Fast Food Service ability
     mcmmo.ability.taming.gore:
         description: Allows access to the Gore ability

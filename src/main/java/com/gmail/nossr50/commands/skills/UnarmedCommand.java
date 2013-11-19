@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 
+import com.gmail.nossr50.datatypes.skills.PassiveAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.unarmed.Unarmed;
@@ -42,14 +43,14 @@ public class UnarmedCommand extends SkillCommand {
 
         // DISARM
         if (canDisarm) {
-            String[] disarmStrings = calculateAbilityDisplayValues(skillValue, Unarmed.disarmMaxBonusLevel, Unarmed.disarmMaxChance, isLucky);
+            String[] disarmStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.DISARM, isLucky);
             disarmChance = disarmStrings[0];
             disarmChanceLucky = disarmStrings[1];
         }
 
         // DEFLECT
         if (canDeflect) {
-            String[] deflectStrings = calculateAbilityDisplayValues(skillValue, Unarmed.deflectMaxBonusLevel, Unarmed.deflectMaxChance, isLucky);
+            String[] deflectStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.DEFLECT, isLucky);
             deflectChance = deflectStrings[0];
             deflectChanceLucky = deflectStrings[1];
         }
@@ -61,7 +62,7 @@ public class UnarmedCommand extends SkillCommand {
 
         // IRON GRIP
         if (canIronGrip) {
-            String[] ironGripStrings = calculateAbilityDisplayValues(skillValue, Unarmed.ironGripMaxBonusLevel, Unarmed.ironGripMaxChance, isLucky);
+            String[] ironGripStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.IRON_GRIP, isLucky);
             ironGripChance = ironGripStrings[0];
             ironGripChanceLucky = ironGripStrings[1];
         }
@@ -71,9 +72,9 @@ public class UnarmedCommand extends SkillCommand {
     protected void permissionsCheck(Player player) {
         canBerserk = Permissions.berserk(player);
         canBonusDamage = Permissions.bonusDamage(player, skill);
-        canDeflect = Permissions.arrowDeflect(player);
-        canDisarm = Permissions.disarm(player);
-        canIronGrip = Permissions.ironGrip(player);
+        canDeflect = Permissions.passiveAbilityEnabled(player, PassiveAbility.DEFLECT);
+        canDisarm = Permissions.passiveAbilityEnabled(player, PassiveAbility.DISARM);
+        canIronGrip = Permissions.passiveAbilityEnabled(player, PassiveAbility.IRON_GRIP);
     }
 
     @Override

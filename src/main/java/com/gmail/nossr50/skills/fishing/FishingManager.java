@@ -76,7 +76,7 @@ public class FishingManager extends SkillManager {
     }
 
     public boolean canShake(Entity target) {
-        return target instanceof LivingEntity && getSkillLevel() >= Tier.ONE.getLevel() && Permissions.shake(getPlayer());
+        return target instanceof LivingEntity && getSkillLevel() >= Tier.ONE.getLevel() && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.SHAKE);
     }
 
     public boolean canMasterAngler() {

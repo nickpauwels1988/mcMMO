@@ -39,13 +39,13 @@ public class UnarmedManager extends SkillManager {
     }
 
     public boolean canDisarm(LivingEntity target) {
-        return target instanceof Player && ((Player) target).getItemInHand().getType() != Material.AIR && Permissions.disarm(getPlayer());
+        return target instanceof Player && ((Player) target).getItemInHand().getType() != Material.AIR && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.DISARM);
     }
 
     public boolean canDeflect() {
         Player player = getPlayer();
 
-        return player.getItemInHand().getType() == Material.AIR && Permissions.arrowDeflect(player);
+        return player.getItemInHand().getType() == Material.AIR && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.DEFLECT);
     }
 
     public boolean canUseBlockCracker() {
@@ -82,7 +82,7 @@ public class UnarmedManager extends SkillManager {
      * @param defender The defending player
      */
     public void disarmCheck(Player defender) {
-        if (SkillUtils.activationSuccessful(PassiveAbility.DISARM, getPlayer(), getSkillLevel(), getActivationChance(), Unarmed.disarmMaxChance, Unarmed.disarmMaxBonusLevel) && !hasIronGrip(defender)) {
+        if (SkillUtils.activationSuccessful(PassiveAbility.DISARM, getPlayer(), getSkillLevel(), getActivationChance()) && !hasIronGrip(defender)) {
             if (EventUtils.callDisarmEvent(defender).isCancelled()) {
                 return;
             }
@@ -98,7 +98,7 @@ public class UnarmedManager extends SkillManager {
      * Check for arrow deflection.
      */
     public boolean deflectCheck() {
-        if (SkillUtils.activationSuccessful(PassiveAbility.DEFLECT, getPlayer(), getSkillLevel(), getActivationChance(), Unarmed.deflectMaxChance, Unarmed.deflectMaxBonusLevel)) {
+        if (SkillUtils.activationSuccessful(PassiveAbility.DEFLECT, getPlayer(), getSkillLevel(), getActivationChance())) {
             getPlayer().sendMessage(LocaleLoader.getString("Combat.ArrowDeflect"));
             return true;
         }
@@ -136,7 +136,7 @@ public class UnarmedManager extends SkillManager {
      * @return true if the defender was not disarmed, false otherwise
      */
     private boolean hasIronGrip(Player defender) {
-        if (!Misc.isNPCEntity(defender) && Permissions.ironGrip(defender) && SkillUtils.activationSuccessful(PassiveAbility.IRON_GRIP, defender, skill, Unarmed.ironGripMaxChance, Unarmed.ironGripMaxBonusLevel)) {
+        if (!Misc.isNPCEntity(defender) && Permissions.passiveAbilityEnabled(defender, PassiveAbility.IRON_GRIP) && SkillUtils.activationSuccessful(PassiveAbility.IRON_GRIP, defender, skill)) {
             defender.sendMessage(LocaleLoader.getString("Unarmed.Ability.IronGrip.Defender"));
             getPlayer().sendMessage(LocaleLoader.getString("Unarmed.Ability.IronGrip.Attacker"));
 

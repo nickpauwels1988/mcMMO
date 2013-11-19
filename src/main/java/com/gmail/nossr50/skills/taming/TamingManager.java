@@ -48,7 +48,7 @@ public class TamingManager extends SkillManager {
     }
 
     public boolean canUseFastFoodService() {
-        return getSkillLevel() >= Taming.fastFoodServiceUnlockLevel && Permissions.fastFoodService(getPlayer());
+        return getSkillLevel() >= Taming.fastFoodServiceUnlockLevel && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.FAST_FOOD);
     }
 
     public boolean canUseSharpenedClaws() {
@@ -56,7 +56,7 @@ public class TamingManager extends SkillManager {
     }
 
     public boolean canUseGore() {
-        return Permissions.gore(getPlayer());
+        return Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.GORE);
     }
 
     public boolean canUseBeastLore() {
@@ -117,7 +117,7 @@ public class TamingManager extends SkillManager {
      * @param wolf The wolf using the ability
      */
     public double gore(LivingEntity target, double damage, Wolf wolf) {
-        if (!SkillUtils.activationSuccessful(PassiveAbility.GORE, getPlayer(), getSkillLevel(), getActivationChance(), Taming.goreMaxChance, Taming.goreMaxBonusLevel)) {
+        if (!SkillUtils.activationSuccessful(PassiveAbility.GORE, getPlayer(), getSkillLevel(), getActivationChance())) {
             return 0;
         }
 

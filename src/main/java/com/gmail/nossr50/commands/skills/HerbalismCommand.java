@@ -85,13 +85,13 @@ public class HerbalismCommand extends SkillCommand {
 
     @Override
     protected void permissionsCheck(Player player) {
-        hasHylianLuck = Permissions.hylianLuck(player);
+        hasHylianLuck = Permissions.passiveAbilityEnabled(player, PassiveAbility.HYLIAN_LUCK);;
         canGreenTerra = Permissions.greenTerra(player);
         canGreenThumbPlants = Permissions.greenThumbPlant(player, Material.CROPS) || Permissions.greenThumbPlant(player, Material.CARROT) || Permissions.greenThumbPlant(player, Material.POTATO) || Permissions.greenThumbPlant(player, Material.NETHER_WARTS) || Permissions.greenThumbPlant(player, Material.COCOA);
         canGreenThumbBlocks = Permissions.greenThumbBlock(player, Material.DIRT) || Permissions.greenThumbBlock(player, Material.COBBLESTONE) || Permissions.greenThumbBlock(player, Material.COBBLE_WALL) || Permissions.greenThumbBlock(player, Material.SMOOTH_BRICK);
         canFarmersDiet = Permissions.farmersDiet(player);
-        canDoubleDrop = Permissions.doubleDrops(player, skill) && !skill.getDoubleDropsDisabled();
-        canShroomThumb = Permissions.shroomThumb(player);
+        canDoubleDrop = Permissions.passiveAbilityEnabled(player, PassiveAbility.HERBALISM_DOUBLE_DROPS) && !skill.getDoubleDropsDisabled();
+        canShroomThumb = Permissions.passiveAbilityEnabled(player, PassiveAbility.SHROOM_THUMB);
     }
 
     @Override

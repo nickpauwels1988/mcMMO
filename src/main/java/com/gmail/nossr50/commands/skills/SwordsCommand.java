@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 
+import com.gmail.nossr50.datatypes.skills.PassiveAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.swords.Swords;
@@ -38,16 +39,16 @@ public class SwordsCommand extends SkillCommand {
 
         // BLEED
         if (canBleed) {
-            bleedLength = (skillValue >= Swords.bleedMaxBonusLevel) ? Swords.bleedMaxTicks : Swords.bleedBaseTicks;
+            bleedLength = (skillValue >= PassiveAbility.BLEED.getMaxLevel()) ? Swords.bleedMaxTicks : Swords.bleedBaseTicks;
 
-            String[] bleedStrings = calculateAbilityDisplayValues(skillValue, Swords.bleedMaxBonusLevel, Swords.bleedMaxChance, isLucky);
+            String[] bleedStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.BLEED, isLucky);
             bleedChance = bleedStrings[0];
             bleedChanceLucky = bleedStrings[1];
         }
 
         // COUNTER ATTACK
         if (canCounter) {
-            String[] counterAttackStrings = calculateAbilityDisplayValues(skillValue, Swords.counterAttackMaxBonusLevel, Swords.counterAttackMaxChance, isLucky);
+            String[] counterAttackStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.COUNTER, isLucky);
             counterAttackChance = counterAttackStrings[0];
             counterAttackChanceLucky = counterAttackStrings[1];
         }
@@ -55,8 +56,8 @@ public class SwordsCommand extends SkillCommand {
 
     @Override
     protected void permissionsCheck(Player player) {
-        canBleed = Permissions.bleed(player);
-        canCounter = Permissions.counterAttack(player);
+        canBleed = Permissions.passiveAbilityEnabled(player, PassiveAbility.BLEED);
+        canCounter = Permissions.passiveAbilityEnabled(player, PassiveAbility.COUNTER);
         canSerratedStrike = Permissions.serratedStrikes(player);
     }
 

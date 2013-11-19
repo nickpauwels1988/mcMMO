@@ -31,6 +31,7 @@ public class StringUtils {
 
     public static String getPrettyPassiveAbilityString(PassiveAbility passiveAbility) {
         switch(passiveAbility) {
+            case SECOND_SMELT:
             case HERBALISM_DOUBLE_DROPS:
             case MINING_DOUBLE_DROPS:
             case WOODCUTTING_DOUBLE_DROPS:

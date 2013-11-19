@@ -12,27 +12,49 @@ public enum PassiveAbility {
     ROLL,
 
     /* ARCHERY */
-    RETRIEVE,
+    TRACK_ARROWS,
     DAZE,
-    AXES_CRITICAL,
-    IMPACT,
+
+    /* Axes */
+    CRITICAL_HIT,
+    ARMOR_IMPACT,
     GREATER_IMPACT,
+
+    /* Herbalism */
     HERBALISM_DOUBLE_DROPS,
     GREEN_THUMB,
     SHROOM_THUMB,
     HYLIAN_LUCK,
     GREEN_THUMB_BLOCK,
+
+    /* Mining */
     MINING_DOUBLE_DROPS,
+
+    /* Repair */
     SUPER_REPAIR,
+
+    /* Smelting */
     SECOND_SMELT,
+    FLUX_MINING,
+
+    /* Swords */
     BLEED,
     COUNTER,
+
+    /* Taming */
     FAST_FOOD,
     GORE,
+
+    /* Woodcutting */
     WOODCUTTING_DOUBLE_DROPS,
+
+    /* Excavation */
     TREASURE_DROP,
+
+    /* Fishing */
     SHAKE,
-    FLUX_MINING,
+
+    /* Unarmed */
     IRON_GRIP,
     DEFLECT,
     DISARM,

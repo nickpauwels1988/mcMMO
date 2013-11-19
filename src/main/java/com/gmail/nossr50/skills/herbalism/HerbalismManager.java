@@ -57,11 +57,11 @@ public class HerbalismManager extends SkillManager {
         Player player = getPlayer();
         Material itemType = player.getItemInHand().getType();
 
-        return (itemType == Material.RED_MUSHROOM || itemType == Material.BROWN_MUSHROOM) && BlockUtils.canMakeShroomy(blockState) && Permissions.shroomThumb(player);
+        return (itemType == Material.RED_MUSHROOM || itemType == Material.BROWN_MUSHROOM) && BlockUtils.canMakeShroomy(blockState) && Permissions.passiveAbilityEnabled(player, PassiveAbility.SHROOM_THUMB);
     }
 
     public boolean canUseHylianLuck() {
-        return Permissions.hylianLuck(getPlayer());
+        return Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.HYLIAN_LUCK);
     }
 
     public boolean canGreenTerraBlock(BlockState blockState) {
@@ -141,7 +141,7 @@ public class HerbalismManager extends SkillManager {
             CustomBlock customBlock = ModUtils.getCustomBlock(blockState);
             xp = customBlock.getXpGain();
 
-            if (Permissions.doubleDrops(player, skill) && customBlock.isDoubleDropEnabled()) {
+            if (Permissions.passiveAbilityEnabled(player, PassiveAbility.HERBALISM_DOUBLE_DROPS) && customBlock.isDoubleDropEnabled()) {
                 drops = blockState.getBlock().getDrops();
             }
         }
@@ -152,7 +152,7 @@ public class HerbalismManager extends SkillManager {
 
             xp = ExperienceConfig.getInstance().getXp(skill, material);
 
-            if (Config.getInstance().getDoubleDropsEnabled(skill, material) && Permissions.doubleDrops(player, skill)) {
+            if (Config.getInstance().getDoubleDropsEnabled(skill, material) && Permissions.passiveAbilityEnabled(player, PassiveAbility.HERBALISM_DOUBLE_DROPS)) {
                 drops = blockState.getBlock().getDrops();
             }
 

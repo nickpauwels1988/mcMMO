@@ -31,15 +31,15 @@ public class AxesManager extends SkillManager {
     }
 
     public boolean canCriticalHit(LivingEntity target) {
-        return target.isValid() && Permissions.criticalStrikes(getPlayer());
+        return target.isValid() && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.CRITICAL_HIT);
     }
 
     public boolean canImpact(LivingEntity target) {
-        return target.isValid() && Permissions.armorImpact(getPlayer()) && Axes.hasArmor(target);
+        return target.isValid() && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.ARMOR_IMPACT) && Axes.hasArmor(target);
     }
 
     public boolean canGreaterImpact(LivingEntity target) {
-        return target.isValid() && Permissions.greaterImpact(getPlayer()) && !Axes.hasArmor(target);
+        return target.isValid() && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.GREATER_IMPACT) && !Axes.hasArmor(target);
     }
 
     public boolean canUseSkullSplitter(LivingEntity target) {
@@ -68,7 +68,7 @@ public class AxesManager extends SkillManager {
      * @param damage The amount of damage initially dealt by the event
      */
     public double criticalHit(LivingEntity target, double damage) {
-        if (!SkillUtils.activationSuccessful(PassiveAbility.AXES_CRITICAL, getPlayer(), getSkillLevel(), getActivationChance(), Axes.criticalHitMaxChance, Axes.criticalHitMaxBonusLevel)) {
+        if (!SkillUtils.activationSuccessful(PassiveAbility.CRITICAL_HIT, getPlayer(), getSkillLevel(), getActivationChance())) {
             return 0;
         }
 
@@ -99,7 +99,7 @@ public class AxesManager extends SkillManager {
         for (ItemStack armor : target.getEquipment().getArmorContents()) {
             if (ItemUtils.isArmor(armor)) {
                 double chance = Axes.impactChance / activationChance;
-                PassiveAbilityActivationCheckEvent event = new PassiveAbilityActivationCheckEvent(getPlayer(), PassiveAbility.IMPACT, chance);
+                PassiveAbilityActivationCheckEvent event = new PassiveAbilityActivationCheckEvent(getPlayer(), PassiveAbility.ARMOR_IMPACT, chance);
                 mcMMO.p.getServer().getPluginManager().callEvent(event);
                 if ((event.getChance() * activationChance) > Misc.getRandom().nextInt(activationChance)) {
                     SkillUtils.handleDurabilityChange(armor, durabilityDamage, Axes.impactMaxDurabilityModifier);

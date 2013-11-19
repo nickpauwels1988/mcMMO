@@ -10,8 +10,6 @@ public class Axes {
     public static double bonusDamageMaxBonus      = AdvancedConfig.getInstance().getBonusDamageAxesBonusMax();
     public static int    bonusDamageMaxBonusLevel = AdvancedConfig.getInstance().getBonusDamageAxesMaxBonusLevel();
 
-    public static int    criticalHitMaxBonusLevel = AdvancedConfig.getInstance().getAxesCriticalMaxBonusLevel();
-    public static double criticalHitMaxChance     = AdvancedConfig.getInstance().getAxesCriticalChance();
     public static double criticalHitPVPModifier   = AdvancedConfig.getInstance().getAxesCriticalPVPModifier();
     public static double criticalHitPVEModifier   = AdvancedConfig.getInstance().getAxesCriticalPVEModifier();
 

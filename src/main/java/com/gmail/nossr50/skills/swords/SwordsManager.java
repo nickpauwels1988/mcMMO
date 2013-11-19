@@ -27,11 +27,11 @@ public class SwordsManager extends SkillManager {
     }
 
     public boolean canUseBleed() {
-        return Permissions.bleed(getPlayer());
+        return Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.BLEED);
     }
 
     public boolean canUseCounterAttack(Entity target) {
-        return target instanceof LivingEntity && Permissions.counterAttack(getPlayer());
+        return target instanceof LivingEntity && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.COUNTER);
     }
 
     public boolean canUseSerratedStrike() {
@@ -44,9 +44,9 @@ public class SwordsManager extends SkillManager {
      * @param target The defending entity
      */
     public void bleedCheck(LivingEntity target) {
-        if (SkillUtils.activationSuccessful(PassiveAbility.BLEED, getPlayer(), getSkillLevel(), getActivationChance(), Swords.bleedMaxChance, Swords.bleedMaxBonusLevel)) {
+        if (SkillUtils.activationSuccessful(PassiveAbility.BLEED, getPlayer(), getSkillLevel(), getActivationChance())) {
 
-            if (getSkillLevel() >= Swords.bleedMaxBonusLevel) {
+            if (getSkillLevel() >= PassiveAbility.BLEED.getMaxLevel()) {
                 BleedTimerTask.add(target, Swords.bleedMaxTicks);
             }
             else {
@@ -78,7 +78,7 @@ public class SwordsManager extends SkillManager {
             return;
         }
 
-        if (SkillUtils.activationSuccessful(PassiveAbility.COUNTER, getPlayer(), getSkillLevel(), getActivationChance(), Swords.counterAttackMaxChance, Swords.counterAttackMaxBonusLevel)) {
+        if (SkillUtils.activationSuccessful(PassiveAbility.COUNTER, getPlayer(), getSkillLevel(), getActivationChance())) {
             CombatUtils.dealDamage(attacker, damage / Swords.counterAttackModifier);
 
             getPlayer().sendMessage(LocaleLoader.getString("Swords.Combat.Countered"));
