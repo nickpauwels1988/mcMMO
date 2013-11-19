@@ -134,11 +134,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
         }
 
         if (getAxesCriticalPVPModifier() < 1) {
-            reason.add("Skills.Axes.AxesCritical.PVP_Modifier should be at least 1!");
+            reason.add("Skills.Axes.CriticalHit.PVP_Modifier should be at least 1!");
         }
 
         if (getAxesCriticalPVEModifier() < 1) {
-            reason.add("Skills.Axes.AxesCritical.PVE_Modifier should be at least 1!");
+            reason.add("Skills.Axes.CriticalHit.PVE_Modifier should be at least 1!");
         }
 
         if (getGreaterImpactChance() < 1) {

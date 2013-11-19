@@ -12,8 +12,8 @@ import com.gmail.nossr50.skills.swords.Swords;
 import com.gmail.nossr50.util.Permissions;
 
 public class SwordsCommand extends SkillCommand {
-    private String counterAttackChance;
-    private String counterAttackChanceLucky;
+    private String counterChance;
+    private String counterChanceLucky;
     private int bleedLength;
     private String bleedChance;
     private String bleedChanceLucky;
@@ -46,11 +46,11 @@ public class SwordsCommand extends SkillCommand {
             bleedChanceLucky = bleedStrings[1];
         }
 
-        // COUNTER ATTACK
+        // COUNTER
         if (canCounter) {
-            String[] counterAttackStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.COUNTER, isLucky);
-            counterAttackChance = counterAttackStrings[0];
-            counterAttackChanceLucky = counterAttackStrings[1];
+            String[] counterStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.COUNTER, isLucky);
+            counterChance = counterStrings[0];
+            counterChanceLucky = counterStrings[1];
         }
     }
 
@@ -86,7 +86,7 @@ public class SwordsCommand extends SkillCommand {
         List<String> messages = new ArrayList<String>();
 
         if (canCounter) {
-            messages.add(LocaleLoader.getString("Swords.Combat.Counter.Chance", counterAttackChance) + (isLucky ? LocaleLoader.getString("Perks.Lucky.Bonus", counterAttackChanceLucky) : ""));
+            messages.add(LocaleLoader.getString("Swords.Combat.Counter.Chance", counterChance) + (isLucky ? LocaleLoader.getString("Perks.Lucky.Bonus", counterChanceLucky) : ""));
         }
 
         if (canBleed) {

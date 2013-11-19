@@ -31,7 +31,7 @@ public class AxesCommand extends SkillCommand {
 
     @Override
     protected void dataCalculations(Player player, float skillValue, boolean isLucky) {
-        // IMPACT
+        // ARMOR IMPACT
         if (canImpact) {
             impactDamage = 1 + (skillValue / Axes.impactIncreaseLevel);
         }
@@ -43,7 +43,7 @@ public class AxesCommand extends SkillCommand {
             skullSplitterLengthEndurance = skullSplitterStrings[1];
         }
 
-        // CRITICAL STRIKES
+        // CRITICAL HIT
         if (canCritical) {
             String[] criticalStrikeStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.CRITICAL_HIT, isLucky);
             critChance = criticalStrikeStrings[0];
