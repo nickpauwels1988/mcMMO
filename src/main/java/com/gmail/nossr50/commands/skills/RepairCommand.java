@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import com.gmail.nossr50.mcMMO;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.repair.ArcaneForging;
@@ -66,7 +66,7 @@ public class RepairCommand extends SkillCommand {
 
         // SUPER REPAIR
         if (canSuperRepair) {
-            String[] superRepairStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.SUPER_REPAIR, isLucky);
+            String[] superRepairStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.SUPER_REPAIR, isLucky);
             superRepairChance = superRepairStrings[0];
             superRepairChanceLucky = superRepairStrings[1];
         }
@@ -74,7 +74,7 @@ public class RepairCommand extends SkillCommand {
 
     @Override
     protected void permissionsCheck(Player player) {
-        canSuperRepair = Permissions.passiveAbilityEnabled(player, PassiveAbility.SUPER_REPAIR);
+        canSuperRepair = Permissions.skillAbilityEnabled(player, SkillAbility.SUPER_REPAIR);
         canMasterRepair = Permissions.repairMastery(player);
         canArcaneForge = Permissions.arcaneForging(player);
         canSalvage = Permissions.salvage(player);

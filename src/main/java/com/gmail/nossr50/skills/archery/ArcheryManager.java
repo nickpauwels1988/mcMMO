@@ -11,7 +11,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.SkillManager;
@@ -27,7 +27,7 @@ public class ArcheryManager extends SkillManager {
     }
 
     public boolean canDaze(LivingEntity target) {
-        return target instanceof Player && PassiveAbility.DAZE.hasPermission(getPlayer());
+        return target instanceof Player && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.DAZE);
     }
 
     public boolean canSkillShot() {
@@ -35,7 +35,7 @@ public class ArcheryManager extends SkillManager {
     }
 
     public boolean canRetrieveArrows() {
-        return PassiveAbility.RETRIEVE.hasPermission(getPlayer());
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.RETRIEVE);
     }
 
     /**
@@ -61,7 +61,7 @@ public class ArcheryManager extends SkillManager {
      * @param target The {@link LivingEntity} damaged by the arrow
      */
     public void retrieveArrows(LivingEntity target) {
-        if (SkillUtils.activationSuccessful(PassiveAbility.RETRIEVE, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (SkillUtils.activationSuccessful(SkillAbility.RETRIEVE, getPlayer(), getSkillLevel(), getActivationChance())) {
             Archery.incrementTrackerValue(target);
         }
     }
@@ -73,7 +73,7 @@ public class ArcheryManager extends SkillManager {
      * @param arrow The {@link Arrow} that was fired
      */
     public double daze(Player defender, Arrow arrow) {
-        if (!SkillUtils.activationSuccessful(PassiveAbility.DAZE, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (!SkillUtils.activationSuccessful(SkillAbility.DAZE, getPlayer(), getSkillLevel(), getActivationChance())) {
             return 0;
         }
 

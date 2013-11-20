@@ -4,20 +4,20 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerEvent;
 
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 
-public class PassiveAbilityActivationCheckEvent extends PlayerEvent {
+public class SkillAbilityPercentageActivationCheckEvent extends PlayerEvent {
 
     private double chance;
-    private PassiveAbility ability;
+    private SkillAbility ability;
 
-    public PassiveAbilityActivationCheckEvent(Player player, PassiveAbility ability, double chance) {
+    public SkillAbilityPercentageActivationCheckEvent(Player player, SkillAbility ability, double chance) {
         super(player);
         this.ability = ability;
         this.chance = chance;
     }
 
-    public PassiveAbility getPassiveAbility() {
+    public SkillAbility getPassiveAbility() {
         return ability;
     }
 

@@ -11,7 +11,7 @@ import org.bukkit.plugin.PluginManager;
 
 import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.commands.party.PartySubcommandType;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 
 public final class Permissions {
@@ -126,7 +126,7 @@ public final class Permissions {
     public static boolean skillEnabled(Permissible permissible, SkillType skill) {return permissible.hasPermission("mcmmo.skills." + skill.toString().toLowerCase()); }
     public static boolean vanillaXpBoost(Permissible permissible, SkillType skill) { return permissible.hasPermission("mcmmo.ability." + skill.toString().toLowerCase() + ".vanillaxpboost"); }
     public static boolean bonusDamage(Permissible permissible, SkillType skill) { return permissible.hasPermission("mcmmo.ability." + skill.toString().toLowerCase() + ".bonusdamage"); }
-    public static boolean passiveAbilityEnabled(Permissible permissible, PassiveAbility passiveAbility) { return permissible.hasPermission("mcmmo.ability." + SkillType.byPassiveAbility(passiveAbility).toString().toLowerCase() + "." + StringUtils.getPrettyPassiveAbilityString(passiveAbility).replace("_", "").toLowerCase()); }
+    public static boolean skillAbilityEnabled(Permissible permissible, SkillAbility skillAbility) { return permissible.hasPermission("mcmmo.ability." + SkillType.bySkillAbility(skillAbility).toString().toLowerCase() + "." + StringUtils.getPrettySkillAbilityString(skillAbility).replace("_", "").toLowerCase()); }
 
     /* AXES */
     public static boolean skullSplitter(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.axes.skullsplitter"); }

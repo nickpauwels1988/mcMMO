@@ -14,7 +14,7 @@ import org.bukkit.material.Tree;
 import com.gmail.nossr50.datatypes.mods.CustomBlock;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.datatypes.skills.AbilityType;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.SkillManager;
@@ -41,7 +41,7 @@ public class WoodcuttingManager extends SkillManager {
     }
 
     protected boolean canGetDoubleDrops() {
-        return Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.WOODCUTTING_DOUBLE_DROPS) && SkillUtils.activationSuccessful(PassiveAbility.WOODCUTTING_DOUBLE_DROPS, getPlayer(), getSkillLevel(), getActivationChance());
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.WOODCUTTING_DOUBLE_DROPS) && SkillUtils.activationSuccessful(SkillAbility.WOODCUTTING_DOUBLE_DROPS, getPlayer(), getSkillLevel(), getActivationChance());
     }
 
     /**

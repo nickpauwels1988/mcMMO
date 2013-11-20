@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.entity.Player;
 
 import com.gmail.nossr50.config.AdvancedConfig;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.util.Permissions;
@@ -36,7 +36,7 @@ public class WoodcuttingCommand extends SkillCommand {
 
         // DOUBLE DROPS
         if (canDoubleDrop) {
-            String[] doubleDropStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.WOODCUTTING_DOUBLE_DROPS, isLucky);
+            String[] doubleDropStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.WOODCUTTING_DOUBLE_DROPS, isLucky);
             doubleDropChance = doubleDropStrings[0];
             doubleDropChanceLucky = doubleDropStrings[1];
         }
@@ -45,7 +45,7 @@ public class WoodcuttingCommand extends SkillCommand {
     @Override
     protected void permissionsCheck(Player player) {
         canTreeFell = Permissions.treeFeller(player);
-        canDoubleDrop = Permissions.passiveAbilityEnabled(player, PassiveAbility.WOODCUTTING_DOUBLE_DROPS) && !skill.getDoubleDropsDisabled();
+        canDoubleDrop = Permissions.skillAbilityEnabled(player, SkillAbility.WOODCUTTING_DOUBLE_DROPS) && !skill.getDoubleDropsDisabled();
         canLeafBlow = Permissions.leafBlower(player);
     }
 

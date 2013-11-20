@@ -7,7 +7,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 import com.gmail.nossr50.config.Config;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.taming.Taming;
@@ -34,7 +34,7 @@ public class TamingCommand extends SkillCommand {
     @Override
     protected void dataCalculations(Player player, float skillValue, boolean isLucky) {
         if (canGore) {
-            String[] goreStrings = calculateAbilityDisplayValues(skillValue, PassiveAbility.GORE, isLucky);
+            String[] goreStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.GORE, isLucky);
             goreChance = goreStrings[0];
             goreChanceLucky = goreStrings[1];
         }
@@ -45,8 +45,8 @@ public class TamingCommand extends SkillCommand {
         canBeastLore = Permissions.beastLore(player);
         canCallWild = Permissions.callOfTheWild(player, EntityType.HORSE) || Permissions.callOfTheWild(player, EntityType.WOLF) || Permissions.callOfTheWild(player, EntityType.OCELOT);
         canEnvironmentallyAware = Permissions.environmentallyAware(player);
-        canFastFood = Permissions.passiveAbilityEnabled(player, PassiveAbility.FAST_FOOD);
-        canGore = Permissions.passiveAbilityEnabled(player, PassiveAbility.GORE);
+        canFastFood = Permissions.skillAbilityEnabled(player, SkillAbility.FAST_FOOD);
+        canGore = Permissions.skillAbilityEnabled(player, SkillAbility.GORE);
         canSharpenedClaws = Permissions.sharpenedClaws(player);
         canShockProof = Permissions.shockProof(player);
         canThickFur = Permissions.thickFur(player);

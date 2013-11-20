@@ -14,9 +14,9 @@ import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.config.AdvancedConfig;
 import com.gmail.nossr50.config.Config;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
-import com.gmail.nossr50.events.skills.PassiveAbilityActivationCheckEvent;
+import com.gmail.nossr50.events.skills.SkillAbilityPercentageActivationCheckEvent;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.runnables.skills.BleedTimerTask;
 import com.gmail.nossr50.skills.SkillManager;
@@ -48,7 +48,7 @@ public class TamingManager extends SkillManager {
     }
 
     public boolean canUseFastFoodService() {
-        return getSkillLevel() >= Taming.fastFoodServiceUnlockLevel && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.FAST_FOOD);
+        return getSkillLevel() >= Taming.fastFoodServiceUnlockLevel && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.FAST_FOOD);
     }
 
     public boolean canUseSharpenedClaws() {
@@ -56,7 +56,7 @@ public class TamingManager extends SkillManager {
     }
 
     public boolean canUseGore() {
-        return Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.GORE);
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.GORE);
     }
 
     public boolean canUseBeastLore() {
@@ -95,7 +95,7 @@ public class TamingManager extends SkillManager {
      */
     public void fastFoodService(Wolf wolf, double damage) {
         double chance = Taming.fastFoodServiceActivationChance / activationChance;
-        PassiveAbilityActivationCheckEvent event = new PassiveAbilityActivationCheckEvent(getPlayer(), PassiveAbility.FAST_FOOD, chance);
+        SkillAbilityPercentageActivationCheckEvent event = new SkillAbilityPercentageActivationCheckEvent(getPlayer(), SkillAbility.FAST_FOOD, chance);
         mcMMO.p.getServer().getPluginManager().callEvent(event);
         if ((event.getChance() * activationChance) > Misc.getRandom().nextInt(activationChance)) {
 
@@ -117,7 +117,7 @@ public class TamingManager extends SkillManager {
      * @param wolf The wolf using the ability
      */
     public double gore(LivingEntity target, double damage, Wolf wolf) {
-        if (!SkillUtils.activationSuccessful(PassiveAbility.GORE, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (!SkillUtils.activationSuccessful(SkillAbility.GORE, getPlayer(), getSkillLevel(), getActivationChance())) {
             return 0;
         }
 

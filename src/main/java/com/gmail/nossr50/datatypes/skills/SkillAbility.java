@@ -1,11 +1,6 @@
 package com.gmail.nossr50.datatypes.skills;
 
-import org.bukkit.entity.Player;
-
-import com.gmail.nossr50.config.AdvancedConfig;
-import com.gmail.nossr50.util.Permissions;
-
-public enum PassiveAbility {
+public enum SkillAbility {
     /* ACROBATICS */
     DODGE,
     GRACEFUL_ROLL,
@@ -32,6 +27,8 @@ public enum PassiveAbility {
 
     /* Repair */
     SUPER_REPAIR,
+    REPAIR, // TODO: Use
+    SALVAGE, // TODO: Use
 
     /* Smelting */
     SECOND_SMELT,
@@ -44,6 +41,8 @@ public enum PassiveAbility {
     /* Taming */
     FAST_FOOD,
     GORE,
+    CALL_OF_THE_WILD, // TODO: Use
+    // TODO: Other taming abilities
 
     /* Woodcutting */
     WOODCUTTING_DOUBLE_DROPS,
@@ -53,22 +52,12 @@ public enum PassiveAbility {
 
     /* Fishing */
     SHAKE,
+    ICE_FISHING, // TODO: Use
 
     /* Unarmed */
     IRON_GRIP,
     DEFLECT,
     DISARM,
+    BLOCK_CRACKER, // TODO: Use
     ;
-
-    public double getMaxChance() {
-        return AdvancedConfig.getInstance().getMaxChance(this);
-    }
-
-    public int getMaxLevel() {
-        return AdvancedConfig.getInstance().getMaxBonusLevel(this);
-    }
-
-    public boolean hasPermission(Player player) {
-        return Permissions.passiveAbilityEnabled(player, this);
-    }
 }

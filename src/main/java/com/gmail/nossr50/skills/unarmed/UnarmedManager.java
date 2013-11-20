@@ -10,7 +10,7 @@ import org.bukkit.material.SmoothBrick;
 
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.datatypes.skills.AbilityType;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.datatypes.skills.ToolType;
 import com.gmail.nossr50.locale.LocaleLoader;
@@ -39,13 +39,13 @@ public class UnarmedManager extends SkillManager {
     }
 
     public boolean canDisarm(LivingEntity target) {
-        return target instanceof Player && ((Player) target).getItemInHand().getType() != Material.AIR && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.DISARM);
+        return target instanceof Player && ((Player) target).getItemInHand().getType() != Material.AIR && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.DISARM);
     }
 
     public boolean canDeflect() {
         Player player = getPlayer();
 
-        return player.getItemInHand().getType() == Material.AIR && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.DEFLECT);
+        return player.getItemInHand().getType() == Material.AIR && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.DEFLECT);
     }
 
     public boolean canUseBlockCracker() {
@@ -82,7 +82,7 @@ public class UnarmedManager extends SkillManager {
      * @param defender The defending player
      */
     public void disarmCheck(Player defender) {
-        if (SkillUtils.activationSuccessful(PassiveAbility.DISARM, getPlayer(), getSkillLevel(), getActivationChance()) && !hasIronGrip(defender)) {
+        if (SkillUtils.activationSuccessful(SkillAbility.DISARM, getPlayer(), getSkillLevel(), getActivationChance()) && !hasIronGrip(defender)) {
             if (EventUtils.callDisarmEvent(defender).isCancelled()) {
                 return;
             }
@@ -98,7 +98,7 @@ public class UnarmedManager extends SkillManager {
      * Check for arrow deflection.
      */
     public boolean deflectCheck() {
-        if (SkillUtils.activationSuccessful(PassiveAbility.DEFLECT, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (SkillUtils.activationSuccessful(SkillAbility.DEFLECT, getPlayer(), getSkillLevel(), getActivationChance())) {
             getPlayer().sendMessage(LocaleLoader.getString("Combat.ArrowDeflect"));
             return true;
         }
@@ -136,7 +136,7 @@ public class UnarmedManager extends SkillManager {
      * @return true if the defender was not disarmed, false otherwise
      */
     private boolean hasIronGrip(Player defender) {
-        if (!Misc.isNPCEntity(defender) && Permissions.passiveAbilityEnabled(defender, PassiveAbility.IRON_GRIP) && SkillUtils.activationSuccessful(PassiveAbility.IRON_GRIP, defender, skill)) {
+        if (!Misc.isNPCEntity(defender) && Permissions.skillAbilityEnabled(defender, SkillAbility.IRON_GRIP) && SkillUtils.activationSuccessful(SkillAbility.IRON_GRIP, defender, skill)) {
             defender.sendMessage(LocaleLoader.getString("Unarmed.Ability.IronGrip.Defender"));
             getPlayer().sendMessage(LocaleLoader.getString("Unarmed.Ability.IronGrip.Attacker"));
 

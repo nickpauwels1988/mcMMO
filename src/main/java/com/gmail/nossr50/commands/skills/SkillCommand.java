@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 import com.gmail.nossr50.config.AdvancedConfig;
 import com.gmail.nossr50.config.Config;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.child.FamilyTree;
@@ -141,10 +141,10 @@ public abstract class SkillCommand implements TabExecutor {
         return calculateAbilityDisplayValues((maxChance / maxBonusLevel) * Math.min(skillValue, maxBonusLevel), isLucky);
     }
 
-    protected String[] calculateAbilityDisplayValues(float skillValue, PassiveAbility passiveAbility, boolean isLucky) {
-        int maxBonusLevel = passiveAbility.getMaxLevel();
+    protected String[] calculateAbilityDisplayValues(float skillValue, SkillAbility skillAbility, boolean isLucky) {
+        int maxBonusLevel = AdvancedConfig.getInstance().getMaxBonusLevel(skillAbility);
 
-        return calculateAbilityDisplayValues((passiveAbility.getMaxChance() / maxBonusLevel) * Math.min(skillValue, maxBonusLevel), isLucky);
+        return calculateAbilityDisplayValues((AdvancedConfig.getInstance().getMaxChance(skillAbility) / maxBonusLevel) * Math.min(skillValue, maxBonusLevel), isLucky);
     }
 
     protected String[] calculateLengthDisplayValues(Player player, float skillValue) {

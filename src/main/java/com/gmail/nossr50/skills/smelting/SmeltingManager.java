@@ -8,9 +8,9 @@ import org.bukkit.inventory.ItemStack;
 
 import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
-import com.gmail.nossr50.datatypes.skills.PassiveAbility;
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
-import com.gmail.nossr50.events.skills.PassiveAbilityActivationCheckEvent;
+import com.gmail.nossr50.events.skills.SkillAbilityPercentageActivationCheckEvent;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.SkillManager;
 import com.gmail.nossr50.skills.smelting.Smelting.Tier;
@@ -25,11 +25,11 @@ public class SmeltingManager extends SkillManager {
     }
 
     public boolean canUseFluxMining(BlockState blockState) {
-        return getSkillLevel() >= Smelting.fluxMiningUnlockLevel && BlockUtils.affectedByFluxMining(blockState) && Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.FLUX_MINING) && !mcMMO.getPlaceStore().isTrue(blockState);
+        return getSkillLevel() >= Smelting.fluxMiningUnlockLevel && BlockUtils.affectedByFluxMining(blockState) && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.FLUX_MINING) && !mcMMO.getPlaceStore().isTrue(blockState);
     }
 
     public boolean isSecondSmeltSuccessful() {
-        return Permissions.passiveAbilityEnabled(getPlayer(), PassiveAbility.SECOND_SMELT) && SkillUtils.activationSuccessful(PassiveAbility.SECOND_SMELT, getPlayer(), getSkillLevel(), getActivationChance());
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.SECOND_SMELT) && SkillUtils.activationSuccessful(SkillAbility.SECOND_SMELT, getPlayer(), getSkillLevel(), getActivationChance());
     }
 
     /**
@@ -41,7 +41,7 @@ public class SmeltingManager extends SkillManager {
     public boolean processFluxMining(BlockState blockState) {
         Player player = getPlayer();
 
-        PassiveAbilityActivationCheckEvent event = new PassiveAbilityActivationCheckEvent(getPlayer(), PassiveAbility.FLUX_MINING, Smelting.fluxMiningChance / getActivationChance());
+        SkillAbilityPercentageActivationCheckEvent event = new SkillAbilityPercentageActivationCheckEvent(getPlayer(), SkillAbility.FLUX_MINING, Smelting.fluxMiningChance / getActivationChance());
         mcMMO.p.getServer().getPluginManager().callEvent(event);
         if ((event.getChance() * getActivationChance()) > Misc.getRandom().nextInt(getActivationChance())) {
             ItemStack item = null;
