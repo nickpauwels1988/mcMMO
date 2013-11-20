@@ -17,7 +17,7 @@ public class SkillAbilityPercentageActivationCheckEvent extends PlayerEvent {
         this.chance = chance;
     }
 
-    public SkillAbility getPassiveAbility() {
+    public SkillAbility getSkillAbility() {
         return ability;
     }
 
