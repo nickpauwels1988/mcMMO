@@ -80,7 +80,7 @@ Skills:
     #  Settings for Axes
     ###
     Axes:
-        DamageIncrease:
+        AxeMastery:
             # MaxBonus: Maximum bonus damage when on <MaxBonusLevel> or higher
             # MaxBonusLevel: Level where <MaxBonus> is reached
             MaxBonus: 4.0
