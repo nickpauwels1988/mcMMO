@@ -615,7 +615,7 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
     public int getEnchantBuff() { return config.getInt("Skills.General.Ability.EnchantBuff", 5); }
 
     public int getMaxBonusLevel(PassiveAbility passiveAbility) { return config.getInt("Skills." + StringUtils.getCapitalized(SkillType.byPassiveAbility(passiveAbility).toString()) + "." + StringUtils.getPrettyPassiveAbilityString(passiveAbility).replace("_", "") + "." + "MaxBonusLevel"); }
-    public double getMaxChance(PassiveAbility passiveAbility) { return config.getInt("Skills." + StringUtils.getCapitalized(SkillType.byPassiveAbility(passiveAbility).toString()) + "." + StringUtils.getPrettyPassiveAbilityString(passiveAbility).replace("_", "") + "." + "ChanceMax"); }
+    public double getMaxChance(PassiveAbility passiveAbility) { return config.getDouble("Skills." + StringUtils.getCapitalized(SkillType.byPassiveAbility(passiveAbility).toString()) + "." + StringUtils.getPrettyPassiveAbilityString(passiveAbility).replace("_", "") + "." + "ChanceMax", 100.0D); }
 
     /* ACROBATICS */
     public double getDodgeDamageModifier() { return config.getDouble("Skills.Acrobatics.Dodge.DamageModifier", 2.0D); }
