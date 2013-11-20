@@ -191,7 +191,6 @@ public final class Permissions {
     public static boolean berserk(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.unarmed.berserk"); }
 
     /* WOODCUTTING */
-    public static boolean leafBlower(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.woodcutting.leafblower"); }
     public static boolean treeFeller(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.woodcutting.treefeller"); }
 
     /*

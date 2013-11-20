@@ -46,7 +46,7 @@ public class WoodcuttingCommand extends SkillCommand {
     protected void permissionsCheck(Player player) {
         canTreeFell = Permissions.treeFeller(player);
         canDoubleDrop = Permissions.skillAbilityEnabled(player, SkillAbility.WOODCUTTING_DOUBLE_DROPS) && !skill.getDoubleDropsDisabled();
-        canLeafBlow = Permissions.leafBlower(player);
+        canLeafBlow = Permissions.skillAbilityEnabled(player, SkillAbility.LEAF_BLOWER);
     }
 
     @Override
