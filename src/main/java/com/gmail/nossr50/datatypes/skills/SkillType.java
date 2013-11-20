@@ -44,7 +44,7 @@ public enum SkillType {
     REPAIR(RepairManager.class, Color.SILVER, ImmutableList.of(SkillAbility.ARCANE_FORGING, SkillAbility.REPAIR_MASTERY, SkillAbility.SALVAGE, SkillAbility.SUPER_REPAIR)),
     SMELTING(SmeltingManager.class, Color.YELLOW, ImmutableList.of(SkillAbility.FLUX_MINING, SkillAbility.FUEL_EFFICIENCY, SkillAbility.SECOND_SMELT)),
     SWORDS(SwordsManager.class, Color.fromRGB(178, 34, 34), AbilityType.SERRATED_STRIKES, ToolType.SWORD, ImmutableList.of(SkillAbility.BLEED, SkillAbility.COUNTER)),
-    TAMING(TamingManager.class, Color.PURPLE, ImmutableList.of(SkillAbility.CALL_OF_THE_WILD, SkillAbility.FAST_FOOD, SkillAbility.GORE)),
+    TAMING(TamingManager.class, Color.PURPLE, ImmutableList.of(SkillAbility.BEAST_LORE, SkillAbility.CALL_OF_THE_WILD, SkillAbility.ENVIROMENTALLY_AWARE, SkillAbility.FAST_FOOD, SkillAbility.GORE, SkillAbility.HOLY_HOUND, SkillAbility.SHARPENED_CLAWS, SkillAbility.SHOCK_PROOF, SkillAbility.THICK_FUR)),
     UNARMED(UnarmedManager.class, Color.BLACK, AbilityType.BERSERK, ToolType.FISTS, ImmutableList.of(SkillAbility.BLOCK_CRACKER, SkillAbility.DEFLECT, SkillAbility.DISARM, SkillAbility.IRON_ARM, SkillAbility.IRON_GRIP)),
     WOODCUTTING(WoodcuttingManager.class, Color.OLIVE, AbilityType.TREE_FELLER, ToolType.AXE, ImmutableList.of(SkillAbility.LEAF_BLOWER, SkillAbility.WOODCUTTING_DOUBLE_DROPS));
 

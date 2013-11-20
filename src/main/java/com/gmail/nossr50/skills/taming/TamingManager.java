@@ -32,19 +32,19 @@ public class TamingManager extends SkillManager {
     }
 
     public boolean canUseThickFur() {
-        return getSkillLevel() >= Taming.thickFurUnlockLevel && Permissions.thickFur(getPlayer());
+        return getSkillLevel() >= Taming.thickFurUnlockLevel && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.THICK_FUR);
     }
 
     public boolean canUseEnvironmentallyAware() {
-        return getSkillLevel() >= Taming.environmentallyAwareUnlockLevel && Permissions.environmentallyAware(getPlayer());
+        return getSkillLevel() >= Taming.environmentallyAwareUnlockLevel && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.ENVIROMENTALLY_AWARE);
     }
 
     public boolean canUseShockProof() {
-        return getSkillLevel() >= Taming.shockProofUnlockLevel && Permissions.shockProof(getPlayer());
+        return getSkillLevel() >= Taming.shockProofUnlockLevel && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.SHOCK_PROOF);
     }
 
     public boolean canUseHolyHound() {
-        return getSkillLevel() >= Taming.holyHoundUnlockLevel && Permissions.holyHound(getPlayer());
+        return getSkillLevel() >= Taming.holyHoundUnlockLevel && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.HOLY_HOUND);
     }
 
     public boolean canUseFastFoodService() {
@@ -52,7 +52,7 @@ public class TamingManager extends SkillManager {
     }
 
     public boolean canUseSharpenedClaws() {
-        return getSkillLevel() >= Taming.sharpenedClawsUnlockLevel && Permissions.sharpenedClaws(getPlayer());
+        return getSkillLevel() >= Taming.sharpenedClawsUnlockLevel && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.SHARPENED_CLAWS);
     }
 
     public boolean canUseGore() {
@@ -60,7 +60,7 @@ public class TamingManager extends SkillManager {
     }
 
     public boolean canUseBeastLore() {
-        return Permissions.beastLore(getPlayer());
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.BEAST_LORE);
     }
 
     /**

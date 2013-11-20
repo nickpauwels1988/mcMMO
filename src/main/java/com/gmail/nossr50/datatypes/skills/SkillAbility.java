@@ -55,9 +55,15 @@ public enum SkillAbility {
     COUNTER,
 
     /* Taming */
+    BEAST_LORE,
     CALL_OF_THE_WILD,
+    ENVIROMENTALLY_AWARE,
     FAST_FOOD,
     GORE,
+    HOLY_HOUND,
+    SHARPENED_CLAWS,
+    SHOCK_PROOF,
+    THICK_FUR,
 
     /* Unarmed */
     BLOCK_CRACKER,
