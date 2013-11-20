@@ -75,6 +75,7 @@ public class UnarmedCommand extends SkillCommand {
         canDeflect = Permissions.skillAbilityEnabled(player, SkillAbility.DEFLECT);
         canDisarm = Permissions.skillAbilityEnabled(player, SkillAbility.DISARM);
         canIronGrip = Permissions.skillAbilityEnabled(player, SkillAbility.IRON_GRIP);
+        // TODO: Apparently we forgot about block cracker?
     }
 
     @Override
@@ -84,6 +85,7 @@ public class UnarmedCommand extends SkillCommand {
         if (canBerserk) {
             messages.add(LocaleLoader.getString("Effects.Template", LocaleLoader.getString("Unarmed.Effect.0"), LocaleLoader.getString("Unarmed.Effect.1")));
         }
+        // TODO: Apparently we forgot about block cracker?
 
         if (canDisarm) {
             messages.add(LocaleLoader.getString("Effects.Template", LocaleLoader.getString("Unarmed.Effect.2"), LocaleLoader.getString("Unarmed.Effect.3")));

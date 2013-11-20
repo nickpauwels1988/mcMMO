@@ -49,7 +49,7 @@ public class UnarmedManager extends SkillManager {
     }
 
     public boolean canUseBlockCracker() {
-        return Permissions.blockCracker(getPlayer());
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.BLOCK_CRACKER);
     }
 
     public boolean blockCrackerCheck(BlockState blockState) {

@@ -175,11 +175,11 @@ permissions:
     mcmmo.ability.archery.all:
         description: Allows access to all Archery abilities
         children:
-            mcmmo.ability.archery.bonusdamage: true
+            mcmmo.ability.archery.skillshot: true
             mcmmo.ability.archery.daze: true
             mcmmo.ability.archery.retrieve: true
-    mcmmo.ability.archery.bonusdamage:
-        description: Allows bonus damage from Archery
+    mcmmo.ability.archery.skillshot:
+        description: Allows bonus damage from the Archery SkillShot ability
     mcmmo.ability.archery.daze:
         description: Allows access to the Daze ability
     mcmmo.ability.archery.retrieve:
@@ -1867,3 +1867,7 @@ permissions:
         description: deprecated
         children:
             mcmmo.ability.swords.counter: true
+    mcmmo.ability.archery.bonusdamage:
+        description: deprecated
+        children:
+            mcmmo.ability.archery.skillshot: true

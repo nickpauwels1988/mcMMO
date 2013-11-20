@@ -207,7 +207,7 @@ public class FishingManager extends SkillManager {
 
         Player player = getPlayer();
 
-        if (!Permissions.iceFishing(player)) {
+        if (!Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.ICE_FISHING)) {
             return false;
         }
 

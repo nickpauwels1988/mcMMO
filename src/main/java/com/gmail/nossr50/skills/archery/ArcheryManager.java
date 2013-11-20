@@ -31,7 +31,7 @@ public class ArcheryManager extends SkillManager {
     }
 
     public boolean canSkillShot() {
-        return getSkillLevel() >= Archery.skillShotIncreaseLevel && Permissions.bonusDamage(getPlayer(), skill);
+        return getSkillLevel() >= Archery.skillShotIncreaseLevel && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.SKILL_SHOT);
     }
 
     public boolean canRetrieveArrows() {

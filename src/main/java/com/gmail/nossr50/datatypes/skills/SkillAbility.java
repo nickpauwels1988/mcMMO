@@ -9,6 +9,7 @@ public enum SkillAbility {
     /* ARCHERY */
     RETRIEVE,
     DAZE,
+    SKILL_SHOT,
 
     /* Axes */
     CRITICAL_HIT,
@@ -46,6 +47,7 @@ public enum SkillAbility {
 
     /* Woodcutting */
     WOODCUTTING_DOUBLE_DROPS,
+    LEAF_BLOWER,
 
     /* Excavation */
     TREASURE_DROP,

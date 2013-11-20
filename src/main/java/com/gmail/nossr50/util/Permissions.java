@@ -138,7 +138,6 @@ public final class Permissions {
     /* FISHING */
     public static boolean fishermansDiet(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.fishermansdiet"); }
     public static boolean fishingTreasureHunter(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.treasures"); }
-    public static boolean iceFishing(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.icefishing"); }
     public static boolean magicHunter(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.magic"); }
     public static boolean masterAngler(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.masterangler"); }
 
@@ -190,7 +189,6 @@ public final class Permissions {
 
     /* UNARMED */
     public static boolean berserk(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.unarmed.berserk"); }
-    public static boolean blockCracker(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.unarmed.blockcracker"); }
 
     /* WOODCUTTING */
     public static boolean leafBlower(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.woodcutting.leafblower"); }

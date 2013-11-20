@@ -117,10 +117,10 @@ public class FishingCommand extends SkillCommand {
     protected void permissionsCheck(Player player) {
         canTreasureHunt = Permissions.fishingTreasureHunter(player);
         canMagicHunt = Permissions.magicHunter(player);
-        canShake = Permissions.skillAbilityEnabled(player, SkillAbility.SHAKE);;
+        canShake = Permissions.skillAbilityEnabled(player, SkillAbility.SHAKE);
         canFishermansDiet = Permissions.fishermansDiet(player);
         canMasterAngler = Permissions.masterAngler(player);
-        canIceFish = Permissions.iceFishing(player);
+        canIceFish = Permissions.skillAbilityEnabled(player, SkillAbility.ICE_FISHING);
     }
 
     @Override
