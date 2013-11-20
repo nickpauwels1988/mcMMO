@@ -7,8 +7,8 @@ import com.gmail.nossr50.config.AdvancedConfig;
 import com.gmail.nossr50.util.ItemUtils;
 
 public class Axes {
-    public static double bonusDamageMaxBonus      = AdvancedConfig.getInstance().getBonusDamageAxesBonusMax();
-    public static int    bonusDamageMaxBonusLevel = AdvancedConfig.getInstance().getBonusDamageAxesMaxBonusLevel();
+    public static double axeMasteryMaxBonus      = AdvancedConfig.getInstance().getAxeMasteryBonusMax();
+    public static int    axeMasteryMaxBonusLevel = AdvancedConfig.getInstance().getAxeMasteryMaxBonusLevel();
 
     public static double criticalHitPVPModifier   = AdvancedConfig.getInstance().getAxesCriticalPVPModifier();
     public static double criticalHitPVEModifier   = AdvancedConfig.getInstance().getAxesCriticalPVEModifier();

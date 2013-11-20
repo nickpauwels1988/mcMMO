@@ -31,11 +31,13 @@ public class StringUtils {
 
     public static String getPrettySkillAbilityString(SkillAbility skillAbility) {
         switch(skillAbility) {
-            case SECOND_SMELT:
             case HERBALISM_DOUBLE_DROPS:
             case MINING_DOUBLE_DROPS:
             case WOODCUTTING_DOUBLE_DROPS:
                 return "DoubleDrops";
+            case FISHING_TREASURE_HUNTER:
+            case EXCAVATION_TREASURE_HUNTER:
+                return "TreasureHunter";
             case GREEN_THUMB_BLOCK:
                 return "GreenThumb";
             default:

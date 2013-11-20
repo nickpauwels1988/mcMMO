@@ -274,7 +274,7 @@ public class RepairManager extends SkillManager {
     private short repairCalculate(short durability, int repairAmount) {
         Player player = getPlayer();
 
-        if (Permissions.repairMastery(player)) {
+        if (Permissions.skillAbilityEnabled(player, SkillAbility.REPAIR_MASTERY)) {
             double bonus = repairAmount * Math.min((((Repair.repairMasteryMaxBonus / Repair.repairMasteryMaxBonusLevel) * getSkillLevel()) / 100.0D), Repair.repairMasteryMaxBonus / 100.0D);
             repairAmount += bonus;
         }
@@ -323,7 +323,7 @@ public class RepairManager extends SkillManager {
             return;
         }
 
-        if (getArcaneForgingRank() == 0 || !Permissions.arcaneForging(player)) {
+        if (getArcaneForgingRank() == 0 || !Permissions.skillAbilityEnabled(player, SkillAbility.ARCANE_FORGING)) {
             for (Enchantment enchant : enchants.keySet()) {
                 item.removeEnchantment(enchant);
             }

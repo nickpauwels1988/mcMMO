@@ -54,7 +54,7 @@ public class SmeltingCommand extends SkillCommand {
 
     @Override
     protected void permissionsCheck(Player player) {
-        canFuelEfficiency = Permissions.fuelEfficiency(player);
+        canFuelEfficiency = Permissions.skillAbilityEnabled(player, SkillAbility.FUEL_EFFICIENCY);
         canSecondSmelt = Permissions.skillAbilityEnabled(player, SkillAbility.SECOND_SMELT);
         canFluxMine = Permissions.skillAbilityEnabled(player, SkillAbility.FLUX_MINING);
         canVanillaXPBoost = Permissions.vanillaXpBoost(player, skill);

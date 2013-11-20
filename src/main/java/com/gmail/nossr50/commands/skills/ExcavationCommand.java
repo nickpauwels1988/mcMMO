@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 
+import com.gmail.nossr50.datatypes.skills.SkillAbility;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.util.Permissions;
@@ -33,7 +34,7 @@ public class ExcavationCommand extends SkillCommand {
     @Override
     protected void permissionsCheck(Player player) {
         canGigaDrill = Permissions.gigaDrillBreaker(player);
-        canTreasureHunt = Permissions.excavationTreasureHunter(player);
+        canTreasureHunt = Permissions.skillAbilityEnabled(player, SkillAbility.EXCAVATION_TREASURE_HUNTER);
     }
 
     @Override

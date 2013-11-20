@@ -117,12 +117,12 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
         }
 
         /* AXES */
-        if (getBonusDamageAxesBonusMax() < 1) {
-            reason.add("Skills.Axes.DamageIncrease.MaxBonus should be at least 1!");
+        if (getAxeMasteryBonusMax() < 1) {
+            reason.add("Skills.Axes.AxeMastery.MaxBonus should be at least 1!");
         }
 
-        if (getBonusDamageAxesMaxBonusLevel() < 1) {
-            reason.add("Skills.Axes.DamageIncrease.MaxBonusLevel should be at least 1!");
+        if (getAxeMasteryMaxBonusLevel() < 1) {
+            reason.add("Skills.Axes.AxeMastery.MaxBonusLevel should be at least 1!");
         }
 
         if (getMaxChance(SkillAbility.CRITICAL_HIT) < 1) {
@@ -635,8 +635,8 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
     public double getForceMultiplier() { return config.getDouble("Skills.Archery.ForceMultiplier", 2.0D); }
 
     /* AXES */
-    public double getBonusDamageAxesBonusMax() { return config.getDouble("Skills.Axes.DamageIncrease.MaxBonus", 4.0D); }
-    public int getBonusDamageAxesMaxBonusLevel() { return config.getInt("Skills.Axes.DamageIncrease.MaxBonusLevel", 200); }
+    public double getAxeMasteryBonusMax() { return config.getDouble("Skills.Axes.AxeMastery.MaxBonus", 4.0D); }
+    public int getAxeMasteryMaxBonusLevel() { return config.getInt("Skills.Axes.AxeMastery.MaxBonusLevel", 200); }
 
     public double getAxesCriticalPVPModifier() { return config.getDouble("Skills.Axes.CriticalHit.PVP_Modifier", 1.5D); }
     public double getAxesCriticalPVEModifier() { return config.getDouble("Skills.Axes.CriticalHit.PVE_Modifier", 2.0D); }

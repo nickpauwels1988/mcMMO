@@ -31,7 +31,7 @@ public class UnarmedManager extends SkillManager {
     }
 
     public boolean canUseIronArm() {
-        return Permissions.bonusDamage(getPlayer(), skill);
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.IRON_ARM);
     }
 
     public boolean canUseBerserk() {

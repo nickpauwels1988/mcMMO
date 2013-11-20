@@ -27,7 +27,7 @@ public class AxesManager extends SkillManager {
     }
 
     public boolean canUseAxeMastery() {
-        return Permissions.bonusDamage(getPlayer(), skill);
+        return Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.AXE_MASTERY);
     }
 
     public boolean canCriticalHit(LivingEntity target) {
@@ -56,7 +56,7 @@ public class AxesManager extends SkillManager {
      * @param target The {@link LivingEntity} being affected by the ability
      */
     public double axeMastery(LivingEntity target) {
-        double axeBonus = Math.min(getSkillLevel() / (Axes.bonusDamageMaxBonusLevel / Axes.bonusDamageMaxBonus), Axes.bonusDamageMaxBonus);
+        double axeBonus = Math.min(getSkillLevel() / (Axes.axeMasteryMaxBonusLevel / Axes.axeMasteryMaxBonus), Axes.axeMasteryMaxBonus);
 
         return CombatUtils.callFakeDamageEvent(getPlayer(), target, axeBonus);
     }

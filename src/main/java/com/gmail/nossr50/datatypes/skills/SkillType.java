@@ -34,19 +34,19 @@ import com.gmail.nossr50.util.skills.ParticleEffectUtils;
 import com.google.common.collect.ImmutableList;
 
 public enum SkillType {
-    ACROBATICS(AcrobaticsManager.class, Color.WHITE, ImmutableList.of(SkillAbility.DODGE, SkillAbility.ROLL, SkillAbility.GRACEFUL_ROLL)),
-    ARCHERY(ArcheryManager.class, Color.MAROON, ImmutableList.of(SkillAbility.RETRIEVE, SkillAbility.DAZE, SkillAbility.SKILL_SHOT)),
-    AXES(AxesManager.class, Color.AQUA, AbilityType.SKULL_SPLITTER, ToolType.AXE, ImmutableList.of(SkillAbility.CRITICAL_HIT, SkillAbility.ARMOR_IMPACT, SkillAbility.GREATER_IMPACT)),
-    EXCAVATION(ExcavationManager.class, Color.fromRGB(139, 69, 19), AbilityType.GIGA_DRILL_BREAKER, ToolType.SHOVEL, ImmutableList.of(SkillAbility.TREASURE_DROP)),
-    FISHING(FishingManager.class, Color.NAVY, ImmutableList.of(SkillAbility.SHAKE, SkillAbility.ICE_FISHING)),
-    HERBALISM(HerbalismManager.class, Color.GREEN, AbilityType.GREEN_TERRA, ToolType.HOE, ImmutableList.of(SkillAbility.GREEN_THUMB, SkillAbility.SHROOM_THUMB, SkillAbility.HYLIAN_LUCK, SkillAbility.GREEN_THUMB_BLOCK, SkillAbility.HERBALISM_DOUBLE_DROPS)),
+    ACROBATICS(AcrobaticsManager.class, Color.WHITE, ImmutableList.of(SkillAbility.DODGE, SkillAbility.GRACEFUL_ROLL, SkillAbility.ROLL)),
+    ARCHERY(ArcheryManager.class, Color.MAROON, ImmutableList.of(SkillAbility.DAZE, SkillAbility.RETRIEVE, SkillAbility.SKILL_SHOT)),
+    AXES(AxesManager.class, Color.AQUA, AbilityType.SKULL_SPLITTER, ToolType.AXE, ImmutableList.of(SkillAbility.ARMOR_IMPACT, SkillAbility.AXE_MASTERY, SkillAbility.CRITICAL_HIT, SkillAbility.GREATER_IMPACT)),
+    EXCAVATION(ExcavationManager.class, Color.fromRGB(139, 69, 19), AbilityType.GIGA_DRILL_BREAKER, ToolType.SHOVEL, ImmutableList.of(SkillAbility.EXCAVATION_TREASURE_HUNTER)),
+    FISHING(FishingManager.class, Color.NAVY, ImmutableList.of(SkillAbility.FISHERMANS_DIET, SkillAbility.FISHING_TREASURE_HUNTER, SkillAbility.ICE_FISHING, SkillAbility.MAGIC_HUNTER, SkillAbility.MASTER_ANGLER, SkillAbility.SHAKE)),
+    HERBALISM(HerbalismManager.class, Color.GREEN, AbilityType.GREEN_TERRA, ToolType.HOE, ImmutableList.of(SkillAbility.FARMERS_DIET, SkillAbility.GREEN_THUMB, SkillAbility.GREEN_THUMB_BLOCK, SkillAbility.HERBALISM_DOUBLE_DROPS, SkillAbility.HYLIAN_LUCK, SkillAbility.SHROOM_THUMB)),
     MINING(MiningManager.class, Color.GRAY, AbilityType.SUPER_BREAKER, ToolType.PICKAXE, ImmutableList.of(SkillAbility.MINING_DOUBLE_DROPS)),
-    REPAIR(RepairManager.class, Color.SILVER, ImmutableList.of(SkillAbility.REPAIR, SkillAbility.SALVAGE, SkillAbility.SUPER_REPAIR)),
-    SMELTING(SmeltingManager.class, Color.YELLOW, ImmutableList.of(SkillAbility.SECOND_SMELT, SkillAbility.FLUX_MINING)),
+    REPAIR(RepairManager.class, Color.SILVER, ImmutableList.of(SkillAbility.ARCANE_FORGING, SkillAbility.REPAIR_MASTERY, SkillAbility.SALVAGE, SkillAbility.SUPER_REPAIR)),
+    SMELTING(SmeltingManager.class, Color.YELLOW, ImmutableList.of(SkillAbility.FLUX_MINING, SkillAbility.FUEL_EFFICIENCY, SkillAbility.SECOND_SMELT)),
     SWORDS(SwordsManager.class, Color.fromRGB(178, 34, 34), AbilityType.SERRATED_STRIKES, ToolType.SWORD, ImmutableList.of(SkillAbility.BLEED, SkillAbility.COUNTER)),
-    TAMING(TamingManager.class, Color.PURPLE, ImmutableList.of(SkillAbility.FAST_FOOD, SkillAbility.GORE, SkillAbility.CALL_OF_THE_WILD)),
-    UNARMED(UnarmedManager.class, Color.BLACK, AbilityType.BERSERK, ToolType.FISTS, ImmutableList.of(SkillAbility.IRON_GRIP, SkillAbility.DEFLECT, SkillAbility.DISARM, SkillAbility.BLOCK_CRACKER)),
-    WOODCUTTING(WoodcuttingManager.class, Color.OLIVE, AbilityType.TREE_FELLER, ToolType.AXE, ImmutableList.of(SkillAbility.WOODCUTTING_DOUBLE_DROPS, SkillAbility.LEAF_BLOWER));
+    TAMING(TamingManager.class, Color.PURPLE, ImmutableList.of(SkillAbility.CALL_OF_THE_WILD, SkillAbility.FAST_FOOD, SkillAbility.GORE)),
+    UNARMED(UnarmedManager.class, Color.BLACK, AbilityType.BERSERK, ToolType.FISTS, ImmutableList.of(SkillAbility.BLOCK_CRACKER, SkillAbility.DEFLECT, SkillAbility.DISARM, SkillAbility.IRON_ARM, SkillAbility.IRON_GRIP)),
+    WOODCUTTING(WoodcuttingManager.class, Color.OLIVE, AbilityType.TREE_FELLER, ToolType.AXE, ImmutableList.of(SkillAbility.LEAF_BLOWER, SkillAbility.WOODCUTTING_DOUBLE_DROPS));
 
     private Class<? extends SkillManager> managerClass;
     private Color runescapeColor;

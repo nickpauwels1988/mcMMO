@@ -205,7 +205,7 @@ public class SkillUtils {
     }
 
     public static boolean treasureDropSuccessful(Player player, double dropChance, int activationChance) {;
-        SkillAbilityPercentageActivationCheckEvent event = new SkillAbilityPercentageActivationCheckEvent(player, SkillAbility.TREASURE_DROP, dropChance / activationChance);
+        SkillAbilityPercentageActivationCheckEvent event = new SkillAbilityPercentageActivationCheckEvent(player, SkillAbility.EXCAVATION_TREASURE_HUNTER, dropChance / activationChance);
         mcMMO.p.getServer().getPluginManager().callEvent(event);
         return (event.getChance() * activationChance) > (Misc.getRandom().nextDouble() * activationChance);
     }

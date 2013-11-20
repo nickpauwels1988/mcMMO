@@ -192,12 +192,12 @@ permissions:
     mcmmo.ability.axes.all:
         description: Allows access to all Axes abilities
         children:
-            mcmmo.ability.axes.bonusdamage: true
+            mcmmo.ability.axes.axemastery: true
             mcmmo.ability.axes.criticalhit: true
             mcmmo.ability.axes.greaterimpact: true
             mcmmo.ability.axes.armorimpact: true
             mcmmo.ability.axes.skullsplitter: true
-    mcmmo.ability.axes.bonusdamage:
+    mcmmo.ability.axes.axemastery:
         description: Allows bonus damage from Axes
     mcmmo.ability.axes.criticalhit:
         description: Allows access to the Critical Hit ability
@@ -243,10 +243,10 @@ permissions:
         description: Allows access to all Excavation abilities
         children:
             mcmmo.ability.excavation.gigadrillbreaker: true
-            mcmmo.ability.excavation.treasures: true
+            mcmmo.ability.excavation.treasurehunter: true
     mcmmo.ability.excavation.gigadrillbreaker:
         description: Allows access to the Giga Drill Breaker ability
-    mcmmo.ability.excavation.treasures:
+    mcmmo.ability.excavation.treasurehunter:
         description: Allows treasure drops from Excavation
     mcmmo.ability.fishing.*:
         default: false
@@ -258,22 +258,22 @@ permissions:
         children:
             mcmmo.ability.fishing.fishermansdiet: true
             mcmmo.ability.fishing.icefishing: true
-            mcmmo.ability.fishing.magic: true
+            mcmmo.ability.fishing.magichunter: true
             mcmmo.ability.fishing.masterangler: true
             mcmmo.ability.fishing.shake: true
-            mcmmo.ability.fishing.treasures: true
+            mcmmo.ability.fishing.treasurehunter: true
             mcmmo.ability.fishing.vanillaxpboost: true
     mcmmo.ability.fishing.fishermansdiet:
         description: Allows access to the Fishermans's Diet ability
     mcmmo.ability.fishing.icefishing:
         description: Allows access to the Ice Fishing ability
-    mcmmo.ability.fishing.magic:
+    mcmmo.ability.fishing.magichunter:
         description: Allows enchanted drops from Fishing
     mcmmo.ability.fishing.masterangler:
         description: Allows access to the Master Angler ability
     mcmmo.ability.fishing.shake:
         description: Allows access to the Shake Mob ability
-    mcmmo.ability.fishing.treasures:
+    mcmmo.ability.fishing.treasurehunter:
         description: Allows treasure drops from Fishing
     mcmmo.ability.fishing.vanillaxpboost:
         description: Allows vanilla XP boost from Fishing
@@ -477,21 +477,16 @@ permissions:
     mcmmo.ability.smelting.all:
         description: Allows access to all Smelting abilities
         children:
-            mcmmo.ability.smelting.doubledrops: true
+            mcmmo.ability.smelting.secondsmelt: true
             mcmmo.ability.smelting.fluxmining: true
             mcmmo.ability.smelting.fuelefficiency: true
             mcmmo.ability.smelting.vanillaxpboost: true
-    mcmmo.ability.smelting.doubledrops:
-        description: Allows access to the Second Smelt ability
     mcmmo.ability.smelting.fluxmining:
         description: Allows access to the Flux Mining ability
     mcmmo.ability.smelting.fuelefficiency:
         description: Allows access to the Fuel Efficiency ability
     mcmmo.ability.smelting.secondsmelt:
-        default: false
         description: Allows access to the Second Smelt ability
-        children:
-            mcmmo.ability.smelting.doubledrops: true
     mcmmo.ability.smelting.vanillaxpboost:
         description: Allows vanilla XP boost from Smelting
     mcmmo.ability.swords.*:
@@ -584,7 +579,7 @@ permissions:
         children:
             mcmmo.ability.unarmed.berserk: true
             mcmmo.ability.unarmed.blockcracker: true
-            mcmmo.ability.unarmed.bonusdamage: true
+            mcmmo.ability.unarmed.ironarm: true
             mcmmo.ability.unarmed.deflect: true
             mcmmo.ability.unarmed.disarm: true
             mcmmo.ability.unarmed.irongrip: true
@@ -592,8 +587,8 @@ permissions:
         description: Allows access to the Berserker ability
     mcmmo.ability.unarmed.blockcracker:
         description: Allows access to the Block Cracker ability
-    mcmmo.ability.unarmed.bonusdamage:
-        description: Allows bonus damage from Unarmed
+    mcmmo.ability.unarmed.ironarm:
+        description: Allows bonus damage from the Iron Arm ability
     mcmmo.ability.unarmed.deflect:
         description: Allows access to the Deflect ability
     mcmmo.ability.unarmed.disarm:
@@ -1871,3 +1866,27 @@ permissions:
         description: deprecated
         children:
             mcmmo.ability.archery.skillshot: true
+    mcmmo.ability.excavation.treasures:
+        description: deprecated
+        children:
+            mcmmo.ability.excavation.treasurehunter: true
+    mcmmo.ability.fishing.treasures:
+        description: deprecated
+        children:
+            mcmmo.ability.fishing.treasurehunter: true
+    mcmmo.ability.fishing.magic:
+        description: deprecated
+        children:
+            mcmmo.ability.fishing.magichunter: true
+    mcmmo.ability.unarmed.bonusdamage:
+        description: deprecated
+        children:
+            mcmmo.ability.unarmed.ironarm: true
+    mcmmo.ability.axes.bonusdamage:
+        description: deprecated
+        children:
+            mcmmo.ability.axes.axemastery: true
+    mcmmo.ability.smelting.doubledrops:
+        description: deprecated
+        children:
+            mcmmo.ability.smelting.secondsmelt: true

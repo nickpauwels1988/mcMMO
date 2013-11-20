@@ -125,7 +125,6 @@ public final class Permissions {
 
     public static boolean skillEnabled(Permissible permissible, SkillType skill) {return permissible.hasPermission("mcmmo.skills." + skill.toString().toLowerCase()); }
     public static boolean vanillaXpBoost(Permissible permissible, SkillType skill) { return permissible.hasPermission("mcmmo.ability." + skill.toString().toLowerCase() + ".vanillaxpboost"); }
-    public static boolean bonusDamage(Permissible permissible, SkillType skill) { return permissible.hasPermission("mcmmo.ability." + skill.toString().toLowerCase() + ".bonusdamage"); }
     public static boolean skillAbilityEnabled(Permissible permissible, SkillAbility skillAbility) { return permissible.hasPermission("mcmmo.ability." + SkillType.bySkillAbility(skillAbility).toString().toLowerCase() + "." + StringUtils.getPrettySkillAbilityString(skillAbility).replace("_", "").toLowerCase()); }
 
     /* AXES */
@@ -133,16 +132,8 @@ public final class Permissions {
 
     /* EXCAVATION */
     public static boolean gigaDrillBreaker(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.excavation.gigadrillbreaker"); }
-    public static boolean excavationTreasureHunter(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.excavation.treasures"); }
-
-    /* FISHING */
-    public static boolean fishermansDiet(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.fishermansdiet"); }
-    public static boolean fishingTreasureHunter(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.treasures"); }
-    public static boolean magicHunter(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.magic"); }
-    public static boolean masterAngler(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.fishing.masterangler"); }
 
     /* HERBALISM */
-    public static boolean farmersDiet(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.herbalism.farmersdiet"); }
     public static boolean greenTerra(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.herbalism.greenterra"); }
     public static boolean greenThumbBlock(Permissible permissible, Material material) { return permissible.hasPermission("mcmmo.ability.herbalism.greenthumb.blocks." + material.toString().replace("_", "").toLowerCase()); }
     public static boolean greenThumbPlant(Permissible permissible, Material material) { return permissible.hasPermission("mcmmo.ability.herbalism.greenthumb.plants." + material.toString().replace("_", "").toLowerCase()); }
@@ -154,10 +145,6 @@ public final class Permissions {
     public static boolean superBreaker(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.mining.superbreaker"); }
 
     /* REPAIR */
-    public static boolean arcaneForging(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.arcaneforging"); }
-    public static boolean repairMastery(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.repairmastery"); }
-    public static boolean salvage(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.salvage"); }
-
     public static boolean repairArmor(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.armorrepair"); }
     public static boolean repairTools(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.toolrepair"); }
     public static boolean repairOtherItems(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.otherrepair"); }
@@ -170,9 +157,6 @@ public final class Permissions {
     public static boolean repairString(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.stringrepair"); }
     public static boolean repairStone(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.stonerepair"); }
     public static boolean repairWood(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.repair.woodrepair"); }
-
-    /* SMELTING */
-    public static boolean fuelEfficiency(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.smelting.fuelefficiency"); }
 
     /* SWORDS */
     public static boolean serratedStrikes(Permissible permissible) { return permissible.hasPermission("mcmmo.ability.swords.serratedstrikes"); }

@@ -80,7 +80,7 @@ public class FishingManager extends SkillManager {
     }
 
     public boolean canMasterAngler() {
-        return getSkillLevel() >= AdvancedConfig.getInstance().getMasterAnglerUnlockLevel() && Permissions.masterAngler(getPlayer());
+        return getSkillLevel() >= AdvancedConfig.getInstance().getMasterAnglerUnlockLevel() && Permissions.skillAbilityEnabled(getPlayer(), SkillAbility.MASTER_ANGLER);
     }
 
     public boolean unleashTheKraken() {
@@ -308,7 +308,7 @@ public class FishingManager extends SkillManager {
         Player player = getPlayer();
         FishingTreasure treasure = null;
 
-        if (Config.getInstance().getFishingDropsEnabled() && Permissions.fishingTreasureHunter(player)) {
+        if (Config.getInstance().getFishingDropsEnabled() && Permissions.skillAbilityEnabled(player, SkillAbility.FISHING_TREASURE_HUNTER)) {
             treasure = getFishingTreasure();
             this.fishingCatch = null;
         }
@@ -319,7 +319,7 @@ public class FishingManager extends SkillManager {
             ItemStack treasureDrop = treasure.getDrop().clone(); // Not cloning is bad, m'kay?
             Map<Enchantment, Integer> enchants = new HashMap<Enchantment, Integer>();
 
-            if (Permissions.magicHunter(player) && ItemUtils.isEnchantable(treasureDrop)) {
+            if (Permissions.skillAbilityEnabled(player, SkillAbility.MAGIC_HUNTER) && ItemUtils.isEnchantable(treasureDrop)) {
                 enchants = handleMagicHunter(treasureDrop);
             }
 

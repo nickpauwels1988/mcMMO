@@ -7,59 +7,67 @@ public enum SkillAbility {
     ROLL,
 
     /* ARCHERY */
-    RETRIEVE,
     DAZE,
+    RETRIEVE,
     SKILL_SHOT,
 
     /* Axes */
-    CRITICAL_HIT,
     ARMOR_IMPACT,
+    AXE_MASTERY,
+    CRITICAL_HIT,
     GREATER_IMPACT,
 
+    /* Excavation */
+    EXCAVATION_TREASURE_HUNTER,
+
+    /* Fishing */
+    FISHERMANS_DIET,
+    FISHING_TREASURE_HUNTER,
+    ICE_FISHING,
+    MAGIC_HUNTER,
+    MASTER_ANGLER,
+    SHAKE,
+
     /* Herbalism */
-    HERBALISM_DOUBLE_DROPS,
+    FARMERS_DIET,
     GREEN_THUMB,
-    SHROOM_THUMB,
-    HYLIAN_LUCK,
     GREEN_THUMB_BLOCK,
+    HERBALISM_DOUBLE_DROPS,
+    HYLIAN_LUCK,
+    SHROOM_THUMB,
 
     /* Mining */
     MINING_DOUBLE_DROPS,
 
     /* Repair */
+    ARCANE_FORGING,
+    REPAIR_MASTERY,
+    SALVAGE,
     SUPER_REPAIR,
-    REPAIR, // TODO: Use
-    SALVAGE, // TODO: Use
 
     /* Smelting */
-    SECOND_SMELT,
     FLUX_MINING,
+    FUEL_EFFICIENCY,
+    SECOND_SMELT,
 
     /* Swords */
     BLEED,
     COUNTER,
 
     /* Taming */
+    CALL_OF_THE_WILD,
     FAST_FOOD,
     GORE,
-    CALL_OF_THE_WILD, // TODO: Use
-    // TODO: Other taming abilities
-
-    /* Woodcutting */
-    WOODCUTTING_DOUBLE_DROPS,
-    LEAF_BLOWER,
-
-    /* Excavation */
-    TREASURE_DROP,
-
-    /* Fishing */
-    SHAKE,
-    ICE_FISHING, // TODO: Use
 
     /* Unarmed */
-    IRON_GRIP,
+    BLOCK_CRACKER,
     DEFLECT,
     DISARM,
-    BLOCK_CRACKER, // TODO: Use
+    IRON_ARM,
+    IRON_GRIP,
+
+    /* Woodcutting */
+    LEAF_BLOWER,
+    WOODCUTTING_DOUBLE_DROPS,
     ;
 }
