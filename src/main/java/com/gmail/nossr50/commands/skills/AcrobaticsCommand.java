@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 
-import com.gmail.nossr50.datatypes.skills.SkillAbility;
+import com.gmail.nossr50.datatypes.skills.SecondaryAbilityType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.util.Permissions;
@@ -30,21 +30,21 @@ public class AcrobaticsCommand extends SkillCommand {
     protected void dataCalculations(Player player, float skillValue, boolean isLucky) {
         // DODGE
         if (canDodge) {
-            String[] dodgeStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.DODGE, isLucky);
+            String[] dodgeStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.DODGE, isLucky);
             dodgeChance = dodgeStrings[0];
             dodgeChanceLucky = dodgeStrings[1];
         }
 
         // ROLL
         if (canRoll) {
-            String[] rollStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.ROLL, isLucky);
+            String[] rollStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.ROLL, isLucky);
             rollChance = rollStrings[0];
             rollChanceLucky = rollStrings[1];
         }
 
         // GRACEFUL ROLL
         if (canGracefulRoll) {
-            String[] gracefulRollStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.GRACEFUL_ROLL, isLucky);
+            String[] gracefulRollStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.GRACEFUL_ROLL, isLucky);
             gracefulRollChance = gracefulRollStrings[0];
             gracefulRollChanceLucky = gracefulRollStrings[1];
         }
@@ -52,9 +52,9 @@ public class AcrobaticsCommand extends SkillCommand {
 
     @Override
     protected void permissionsCheck(Player player) {
-        canDodge = Permissions.skillAbilityEnabled(player, SkillAbility.DODGE);
-        canRoll = Permissions.skillAbilityEnabled(player, SkillAbility.ROLL);
-        canGracefulRoll = Permissions.skillAbilityEnabled(player, SkillAbility.GRACEFUL_ROLL);
+        canDodge = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.DODGE);
+        canRoll = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.ROLL);
+        canGracefulRoll = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.GRACEFUL_ROLL);
     }
 
     @Override

@@ -18,9 +18,9 @@ import com.gmail.nossr50.config.Config;
 import com.gmail.nossr50.config.HiddenConfig;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.datatypes.skills.AbilityType;
-import com.gmail.nossr50.datatypes.skills.SkillAbility;
+import com.gmail.nossr50.datatypes.skills.SecondaryAbilityType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
-import com.gmail.nossr50.events.skills.SkillAbilityPercentageActivationCheckEvent;
+import com.gmail.nossr50.events.skills.secondaryabilities.SecondaryAbilityWeightedActivationCheckEvent;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.util.ItemUtils;
 import com.gmail.nossr50.util.Misc;
@@ -189,23 +189,23 @@ public class SkillUtils {
         itemStack.setDurability((short) Math.min(itemStack.getDurability() + durabilityModifier, maxDurability));
     }
 
-    public static boolean activationSuccessful(SkillAbility skillAbility, Player player, SkillType skill) {
+    public static boolean activationSuccessful(SecondaryAbilityType skillAbility, Player player, SkillType skill) {
         return activationSuccessful(skillAbility, player, UserManager.getPlayer(player).getSkillLevel(skill), PerksUtils.handleLuckyPerks(player, skill));
     }
 
-    public static boolean activationSuccessful(SkillAbility skillAbility, Player player, int skillLevel, int activationChance) {
+    public static boolean activationSuccessful(SecondaryAbilityType skillAbility, Player player, int skillLevel, int activationChance) {
         return activationSuccessful(skillAbility, player, skillLevel, activationChance, AdvancedConfig.getInstance().getMaxChance(skillAbility), AdvancedConfig.getInstance().getMaxBonusLevel(skillAbility));
     }
 
-    public static boolean activationSuccessful(SkillAbility skillAbility, Player player, int skillLevel, int activationChance, double maxChance, int maxLevel) {
+    public static boolean activationSuccessful(SecondaryAbilityType skillAbility, Player player, int skillLevel, int activationChance, double maxChance, int maxLevel) {
         double chance = (maxChance / maxLevel) * Math.min(skillLevel, maxLevel) / activationChance;
-        SkillAbilityPercentageActivationCheckEvent event = new SkillAbilityPercentageActivationCheckEvent(player, skillAbility, chance);
+        SecondaryAbilityWeightedActivationCheckEvent event = new SecondaryAbilityWeightedActivationCheckEvent(player, skillAbility, chance);
         mcMMO.p.getServer().getPluginManager().callEvent(event);
         return (event.getChance() * activationChance) > Misc.getRandom().nextInt(activationChance);
     }
 
     public static boolean treasureDropSuccessful(Player player, double dropChance, int activationChance) {;
-        SkillAbilityPercentageActivationCheckEvent event = new SkillAbilityPercentageActivationCheckEvent(player, SkillAbility.EXCAVATION_TREASURE_HUNTER, dropChance / activationChance);
+        SecondaryAbilityWeightedActivationCheckEvent event = new SecondaryAbilityWeightedActivationCheckEvent(player, SecondaryAbilityType.EXCAVATION_TREASURE_HUNTER, dropChance / activationChance);
         mcMMO.p.getServer().getPluginManager().callEvent(event);
         return (event.getChance() * activationChance) > (Misc.getRandom().nextDouble() * activationChance);
     }

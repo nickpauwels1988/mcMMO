@@ -34,25 +34,25 @@ import com.gmail.nossr50.util.skills.ParticleEffectUtils;
 import com.google.common.collect.ImmutableList;
 
 public enum SkillType {
-    ACROBATICS(AcrobaticsManager.class, Color.WHITE, ImmutableList.of(SkillAbility.DODGE, SkillAbility.GRACEFUL_ROLL, SkillAbility.ROLL)),
-    ARCHERY(ArcheryManager.class, Color.MAROON, ImmutableList.of(SkillAbility.DAZE, SkillAbility.RETRIEVE, SkillAbility.SKILL_SHOT)),
-    AXES(AxesManager.class, Color.AQUA, AbilityType.SKULL_SPLITTER, ToolType.AXE, ImmutableList.of(SkillAbility.ARMOR_IMPACT, SkillAbility.AXE_MASTERY, SkillAbility.CRITICAL_HIT, SkillAbility.GREATER_IMPACT)),
-    EXCAVATION(ExcavationManager.class, Color.fromRGB(139, 69, 19), AbilityType.GIGA_DRILL_BREAKER, ToolType.SHOVEL, ImmutableList.of(SkillAbility.EXCAVATION_TREASURE_HUNTER)),
-    FISHING(FishingManager.class, Color.NAVY, ImmutableList.of(SkillAbility.FISHERMANS_DIET, SkillAbility.FISHING_TREASURE_HUNTER, SkillAbility.ICE_FISHING, SkillAbility.MAGIC_HUNTER, SkillAbility.MASTER_ANGLER, SkillAbility.SHAKE)),
-    HERBALISM(HerbalismManager.class, Color.GREEN, AbilityType.GREEN_TERRA, ToolType.HOE, ImmutableList.of(SkillAbility.FARMERS_DIET, SkillAbility.GREEN_THUMB, SkillAbility.GREEN_THUMB_BLOCK, SkillAbility.HERBALISM_DOUBLE_DROPS, SkillAbility.HYLIAN_LUCK, SkillAbility.SHROOM_THUMB)),
-    MINING(MiningManager.class, Color.GRAY, AbilityType.SUPER_BREAKER, ToolType.PICKAXE, ImmutableList.of(SkillAbility.MINING_DOUBLE_DROPS)),
-    REPAIR(RepairManager.class, Color.SILVER, ImmutableList.of(SkillAbility.ARCANE_FORGING, SkillAbility.REPAIR_MASTERY, SkillAbility.SALVAGE, SkillAbility.SUPER_REPAIR)),
-    SMELTING(SmeltingManager.class, Color.YELLOW, ImmutableList.of(SkillAbility.FLUX_MINING, SkillAbility.FUEL_EFFICIENCY, SkillAbility.SECOND_SMELT)),
-    SWORDS(SwordsManager.class, Color.fromRGB(178, 34, 34), AbilityType.SERRATED_STRIKES, ToolType.SWORD, ImmutableList.of(SkillAbility.BLEED, SkillAbility.COUNTER)),
-    TAMING(TamingManager.class, Color.PURPLE, ImmutableList.of(SkillAbility.BEAST_LORE, SkillAbility.CALL_OF_THE_WILD, SkillAbility.ENVIROMENTALLY_AWARE, SkillAbility.FAST_FOOD, SkillAbility.GORE, SkillAbility.HOLY_HOUND, SkillAbility.SHARPENED_CLAWS, SkillAbility.SHOCK_PROOF, SkillAbility.THICK_FUR)),
-    UNARMED(UnarmedManager.class, Color.BLACK, AbilityType.BERSERK, ToolType.FISTS, ImmutableList.of(SkillAbility.BLOCK_CRACKER, SkillAbility.DEFLECT, SkillAbility.DISARM, SkillAbility.IRON_ARM, SkillAbility.IRON_GRIP)),
-    WOODCUTTING(WoodcuttingManager.class, Color.OLIVE, AbilityType.TREE_FELLER, ToolType.AXE, ImmutableList.of(SkillAbility.LEAF_BLOWER, SkillAbility.WOODCUTTING_DOUBLE_DROPS));
+    ACROBATICS(AcrobaticsManager.class, Color.WHITE, ImmutableList.of(SecondaryAbilityType.DODGE, SecondaryAbilityType.GRACEFUL_ROLL, SecondaryAbilityType.ROLL)),
+    ARCHERY(ArcheryManager.class, Color.MAROON, ImmutableList.of(SecondaryAbilityType.DAZE, SecondaryAbilityType.RETRIEVE, SecondaryAbilityType.SKILL_SHOT)),
+    AXES(AxesManager.class, Color.AQUA, AbilityType.SKULL_SPLITTER, ToolType.AXE, ImmutableList.of(SecondaryAbilityType.ARMOR_IMPACT, SecondaryAbilityType.AXE_MASTERY, SecondaryAbilityType.CRITICAL_HIT, SecondaryAbilityType.GREATER_IMPACT)),
+    EXCAVATION(ExcavationManager.class, Color.fromRGB(139, 69, 19), AbilityType.GIGA_DRILL_BREAKER, ToolType.SHOVEL, ImmutableList.of(SecondaryAbilityType.EXCAVATION_TREASURE_HUNTER)),
+    FISHING(FishingManager.class, Color.NAVY, ImmutableList.of(SecondaryAbilityType.FISHERMANS_DIET, SecondaryAbilityType.FISHING_TREASURE_HUNTER, SecondaryAbilityType.ICE_FISHING, SecondaryAbilityType.MAGIC_HUNTER, SecondaryAbilityType.MASTER_ANGLER, SecondaryAbilityType.SHAKE)),
+    HERBALISM(HerbalismManager.class, Color.GREEN, AbilityType.GREEN_TERRA, ToolType.HOE, ImmutableList.of(SecondaryAbilityType.FARMERS_DIET, SecondaryAbilityType.GREEN_THUMB, SecondaryAbilityType.GREEN_THUMB_BLOCK, SecondaryAbilityType.HERBALISM_DOUBLE_DROPS, SecondaryAbilityType.HYLIAN_LUCK, SecondaryAbilityType.SHROOM_THUMB)),
+    MINING(MiningManager.class, Color.GRAY, AbilityType.SUPER_BREAKER, ToolType.PICKAXE, ImmutableList.of(SecondaryAbilityType.MINING_DOUBLE_DROPS)),
+    REPAIR(RepairManager.class, Color.SILVER, ImmutableList.of(SecondaryAbilityType.ARCANE_FORGING, SecondaryAbilityType.REPAIR_MASTERY, SecondaryAbilityType.SALVAGE, SecondaryAbilityType.SUPER_REPAIR)),
+    SMELTING(SmeltingManager.class, Color.YELLOW, ImmutableList.of(SecondaryAbilityType.FLUX_MINING, SecondaryAbilityType.FUEL_EFFICIENCY, SecondaryAbilityType.SECOND_SMELT)),
+    SWORDS(SwordsManager.class, Color.fromRGB(178, 34, 34), AbilityType.SERRATED_STRIKES, ToolType.SWORD, ImmutableList.of(SecondaryAbilityType.BLEED, SecondaryAbilityType.COUNTER)),
+    TAMING(TamingManager.class, Color.PURPLE, ImmutableList.of(SecondaryAbilityType.BEAST_LORE, SecondaryAbilityType.CALL_OF_THE_WILD, SecondaryAbilityType.ENVIROMENTALLY_AWARE, SecondaryAbilityType.FAST_FOOD, SecondaryAbilityType.GORE, SecondaryAbilityType.HOLY_HOUND, SecondaryAbilityType.SHARPENED_CLAWS, SecondaryAbilityType.SHOCK_PROOF, SecondaryAbilityType.THICK_FUR)),
+    UNARMED(UnarmedManager.class, Color.BLACK, AbilityType.BERSERK, ToolType.FISTS, ImmutableList.of(SecondaryAbilityType.BLOCK_CRACKER, SecondaryAbilityType.DEFLECT, SecondaryAbilityType.DISARM, SecondaryAbilityType.IRON_ARM, SecondaryAbilityType.IRON_GRIP)),
+    WOODCUTTING(WoodcuttingManager.class, Color.OLIVE, AbilityType.TREE_FELLER, ToolType.AXE, ImmutableList.of(SecondaryAbilityType.LEAF_BLOWER, SecondaryAbilityType.WOODCUTTING_DOUBLE_DROPS));
 
     private Class<? extends SkillManager> managerClass;
     private Color runescapeColor;
     private AbilityType ability;
     private ToolType tool;
-    private List<SkillAbility> skillAbilities;
+    private List<SecondaryAbilityType> skillAbilities;
 
     public static final List<String> SKILL_NAMES;
 
@@ -86,11 +86,11 @@ public enum SkillType {
         NON_CHILD_SKILLS = ImmutableList.copyOf(nonChildSkills);
     }
 
-    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, List<SkillAbility> skillAbilities) {
+    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, List<SecondaryAbilityType> skillAbilities) {
         this(managerClass, runescapeColor, null, null, skillAbilities);
     }
 
-    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, AbilityType ability, ToolType tool, List<SkillAbility> skillAbilities) {
+    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, AbilityType ability, ToolType tool, List<SecondaryAbilityType> skillAbilities) {
         this.managerClass = managerClass;
         this.runescapeColor = runescapeColor;
         this.ability = ability;
@@ -147,7 +147,7 @@ public enum SkillType {
         return tool;
     }
 
-    public List<SkillAbility> getSkillAbilities() {
+    public List<SecondaryAbilityType> getSkillAbilities() {
         return skillAbilities;
     }
 
@@ -188,7 +188,7 @@ public enum SkillType {
         }
     }
 
-    public static SkillType bySkillAbility(SkillAbility skillAbility) {
+    public static SkillType bySecondaryAbility(SecondaryAbilityType skillAbility) {
         for (SkillType type : values()) {
             if (type.getSkillAbilities().contains(skillAbility)) {
                 return type;

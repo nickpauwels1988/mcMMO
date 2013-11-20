@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.gmail.nossr50.datatypes.skills.SkillAbility;
+import com.gmail.nossr50.datatypes.skills.SecondaryAbilityType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.skills.fishing.Fishing;
 import com.gmail.nossr50.skills.mining.BlastMining;
@@ -43,11 +43,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
         }
 
         /* ACROBATICS */
-        if (getMaxChance(SkillAbility.DODGE) < 1) {
+        if (getMaxChance(SecondaryAbilityType.DODGE) < 1) {
             reason.add("Skills.Acrobatics.Dodge.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.DODGE) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.DODGE) < 1) {
             reason.add("Skills.Acrobatics.Dodge.MaxBonusLevel should be at least 1!");
         }
 
@@ -55,11 +55,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Acrobatics.Dodge.DamageModifier should be greater than 1!");
         }
 
-        if (getMaxChance(SkillAbility.ROLL) < 1) {
+        if (getMaxChance(SecondaryAbilityType.ROLL) < 1) {
             reason.add("Skills.Acrobatics.Roll.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.ROLL) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.ROLL) < 1) {
             reason.add("Skills.Acrobatics.Roll.MaxBonusLevel should be at least 1!");
         }
 
@@ -67,11 +67,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Acrobatics.Roll.DamageThreshold should be at least 0!");
         }
 
-        if (getMaxChance(SkillAbility.GRACEFUL_ROLL) < 1) {
+        if (getMaxChance(SecondaryAbilityType.GRACEFUL_ROLL) < 1) {
             reason.add("Skills.Acrobatics.GracefulRoll.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.GRACEFUL_ROLL) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.GRACEFUL_ROLL) < 1) {
             reason.add("Skills.Acrobatics.GracefulRoll.MaxBonusLevel should be at least 1!");
         }
 
@@ -92,11 +92,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Archery.SkillShot.MaxBonus should be at least 0!");
         }
 
-        if (getMaxChance(SkillAbility.DAZE) < 1) {
+        if (getMaxChance(SecondaryAbilityType.DAZE) < 1) {
             reason.add("Skills.Acrobatics.Daze.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.DAZE) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.DAZE) < 1) {
             reason.add("Skills.Acrobatics.Daze.MaxBonusLevel should be at least 1!");
         }
 
@@ -104,11 +104,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Acrobatics.Daze.BonusDamage should be at least 0!");
         }
 
-        if (getMaxChance(SkillAbility.RETRIEVE) < 1) {
+        if (getMaxChance(SecondaryAbilityType.RETRIEVE) < 1) {
             reason.add("Skills.Acrobatics.Retrieve.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.RETRIEVE) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.RETRIEVE) < 1) {
             reason.add("Skills.Acrobatics.Retrieve.MaxBonusLevel should be at least 1!");
         }
 
@@ -125,11 +125,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Axes.AxeMastery.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.CRITICAL_HIT) < 1) {
+        if (getMaxChance(SecondaryAbilityType.CRITICAL_HIT) < 1) {
             reason.add("Skills.Axes.CriticalHit.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.CRITICAL_HIT) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.CRITICAL_HIT) < 1) {
             reason.add("Skills.Axes.CriticalHit.MaxBonusLevel should be at least 1!");
         }
 
@@ -231,44 +231,44 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Herbalism.GreenThumb.StageChange should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.GREEN_THUMB) < 1) {
+        if (getMaxChance(SecondaryAbilityType.GREEN_THUMB) < 1) {
             reason.add("Skills.Herbalism.GreenThumb.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.GREEN_THUMB) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.GREEN_THUMB) < 1) {
             reason.add("Skills.Herbalism.GreenThumb.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.HERBALISM_DOUBLE_DROPS) < 1) {
+        if (getMaxChance(SecondaryAbilityType.HERBALISM_DOUBLE_DROPS) < 1) {
             reason.add("Skills.Herbalism.DoubleDrops.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.HERBALISM_DOUBLE_DROPS) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.HERBALISM_DOUBLE_DROPS) < 1) {
             reason.add("Skills.Herbalism.DoubleDrops.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.HYLIAN_LUCK) < 1) {
+        if (getMaxChance(SecondaryAbilityType.HYLIAN_LUCK) < 1) {
             reason.add("Skills.Herbalism.HylianLuck.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.HYLIAN_LUCK) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.HYLIAN_LUCK) < 1) {
             reason.add("Skills.Herbalism.HylianLuck.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.SHROOM_THUMB) < 1) {
+        if (getMaxChance(SecondaryAbilityType.SHROOM_THUMB) < 1) {
             reason.add("Skills.Herbalism.ShroomThumb.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.SHROOM_THUMB) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.SHROOM_THUMB) < 1) {
             reason.add("Skills.Herbalism.ShroomThumb.MaxBonusLevel should be at least 1!");
         }
 
         /* MINING */
-        if (getMaxChance(SkillAbility.MINING_DOUBLE_DROPS) < 1) {
+        if (getMaxChance(SecondaryAbilityType.MINING_DOUBLE_DROPS) < 1) {
             reason.add("Skills.Mining.DoubleDrops.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.MINING_DOUBLE_DROPS) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.MINING_DOUBLE_DROPS) < 1) {
             reason.add("Skills.Mining.DoubleDrops.MaxBonusLevel should be at least 1!");
         }
 
@@ -337,11 +337,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Repair.RepairMastery.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.SUPER_REPAIR) < 1) {
+        if (getMaxChance(SecondaryAbilityType.SUPER_REPAIR) < 1) {
             reason.add("Skills.Repair.SuperRepair.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.SUPER_REPAIR) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.SUPER_REPAIR) < 1) {
             reason.add("Skills.Repair.SuperRepair.MaxBonusLevel should be at least 1!");
         }
 
@@ -390,11 +390,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Smelting.FuelEfficiency.Multiplier should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.SECOND_SMELT) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.SECOND_SMELT) < 1) {
             reason.add("Skills.Smelting.SecondSmelt.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.SECOND_SMELT) < 1) {
+        if (getMaxChance(SecondaryAbilityType.SECOND_SMELT) < 1) {
             reason.add("Skills.Smelting.SecondSmelt.ChanceMax should be at least 1!");
         }
 
@@ -431,11 +431,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
         }
 
         /* SWORDS */
-        if (getMaxChance(SkillAbility.BLEED) < 1) {
+        if (getMaxChance(SecondaryAbilityType.BLEED) < 1) {
             reason.add("Skills.Swords.Bleed.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.BLEED) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.BLEED) < 1) {
             reason.add("Skills.Swords.Bleed.MaxBonusLevel should be at least 1!");
         }
 
@@ -451,11 +451,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Swords.Bleed.BaseTicks should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.COUNTER) < 1) {
+        if (getMaxChance(SecondaryAbilityType.COUNTER) < 1) {
             reason.add("Skills.Swords.Counter.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.COUNTER) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.COUNTER) < 1) {
             reason.add("Skills.Swords.Counter.MaxBonusLevel should be at least 1!");
         }
 
@@ -473,11 +473,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
 
         /* TAMING */
 
-        if (getMaxChance(SkillAbility.GORE) < 1) {
+        if (getMaxChance(SecondaryAbilityType.GORE) < 1) {
             reason.add("Skills.Taming.Gore.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.GORE) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.GORE) < 1) {
             reason.add("Skills.Taming.Gore.MaxBonusLevel should be at least 1!");
         }
 
@@ -534,27 +534,27 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
         }
 
         /* UNARMED */
-        if (getMaxChance(SkillAbility.DISARM) < 1) {
+        if (getMaxChance(SecondaryAbilityType.DISARM) < 1) {
             reason.add("Skills.Unarmed.Disarm.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.DISARM) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.DISARM) < 1) {
             reason.add("Skills.Unarmed.Disarm.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.DEFLECT) < 1) {
+        if (getMaxChance(SecondaryAbilityType.DEFLECT) < 1) {
             reason.add("Skills.Unarmed.Deflect.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.DEFLECT) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.DEFLECT) < 1) {
             reason.add("Skills.Unarmed.Deflect.MaxBonusLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.IRON_GRIP) < 1) {
+        if (getMaxChance(SecondaryAbilityType.IRON_GRIP) < 1) {
             reason.add("Skills.Unarmed.IronGrip.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.IRON_GRIP) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.IRON_GRIP) < 1) {
             reason.add("Skills.Unarmed.IronGrip.MaxBonusLevel should be at least 1!");
         }
 
@@ -579,11 +579,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Woodcutting.LeafBlower.UnlockLevel should be at least 1!");
         }
 
-        if (getMaxChance(SkillAbility.WOODCUTTING_DOUBLE_DROPS) < 1) {
+        if (getMaxChance(SecondaryAbilityType.WOODCUTTING_DOUBLE_DROPS) < 1) {
             reason.add("Skills.Woodcutting.DoubleDrops.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SkillAbility.WOODCUTTING_DOUBLE_DROPS) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.WOODCUTTING_DOUBLE_DROPS) < 1) {
             reason.add("Skills.Woodcutting.DoubleDrops.MaxBonusLevel should be at least 1!");
         }
 
@@ -614,8 +614,8 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
     public int getAbilityLength() { return config.getInt("Skills.General.Ability.IncreaseLevel", 50); }
     public int getEnchantBuff() { return config.getInt("Skills.General.Ability.EnchantBuff", 5); }
 
-    public int getMaxBonusLevel(SkillAbility skillAbility) { return config.getInt("Skills." + StringUtils.getCapitalized(SkillType.bySkillAbility(skillAbility).toString()) + "." + StringUtils.getPrettySkillAbilityString(skillAbility).replace("_", "") + "." + "MaxBonusLevel"); }
-    public double getMaxChance(SkillAbility skillAbility) { return config.getDouble("Skills." + StringUtils.getCapitalized(SkillType.bySkillAbility(skillAbility).toString()) + "." + StringUtils.getPrettySkillAbilityString(skillAbility).replace("_", "") + "." + "ChanceMax", 100.0D); }
+    public int getMaxBonusLevel(SecondaryAbilityType skillAbility) { return config.getInt("Skills." + StringUtils.getCapitalized(SkillType.bySecondaryAbility(skillAbility).toString()) + "." + StringUtils.getPrettySecondaryAbilityString(skillAbility).replace("_", "") + "." + "MaxBonusLevel"); }
+    public double getMaxChance(SecondaryAbilityType skillAbility) { return config.getDouble("Skills." + StringUtils.getCapitalized(SkillType.bySecondaryAbility(skillAbility).toString()) + "." + StringUtils.getPrettySecondaryAbilityString(skillAbility).replace("_", "") + "." + "ChanceMax", 100.0D); }
 
     /* ACROBATICS */
     public double getDodgeDamageModifier() { return config.getDouble("Skills.Acrobatics.Dodge.DamageModifier", 2.0D); }

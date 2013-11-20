@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import com.gmail.nossr50.config.AdvancedConfig;
 import com.gmail.nossr50.config.treasure.TreasureConfig;
-import com.gmail.nossr50.datatypes.skills.SkillAbility;
+import com.gmail.nossr50.datatypes.skills.SecondaryAbilityType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.datatypes.treasure.Rarity;
 import com.gmail.nossr50.locale.LocaleLoader;
@@ -115,12 +115,12 @@ public class FishingCommand extends SkillCommand {
 
     @Override
     protected void permissionsCheck(Player player) {
-        canTreasureHunt = Permissions.skillAbilityEnabled(player, SkillAbility.FISHING_TREASURE_HUNTER);
-        canMagicHunt = Permissions.skillAbilityEnabled(player, SkillAbility.MAGIC_HUNTER);
-        canShake = Permissions.skillAbilityEnabled(player, SkillAbility.SHAKE);
-        canFishermansDiet = Permissions.skillAbilityEnabled(player, SkillAbility.FISHERMANS_DIET);
-        canMasterAngler = Permissions.skillAbilityEnabled(player, SkillAbility.MASTER_ANGLER);
-        canIceFish = Permissions.skillAbilityEnabled(player, SkillAbility.ICE_FISHING);
+        canTreasureHunt = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.FISHING_TREASURE_HUNTER);
+        canMagicHunt = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.MAGIC_HUNTER);
+        canShake = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.SHAKE);
+        canFishermansDiet = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.FISHERMANS_DIET);
+        canMasterAngler = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.MASTER_ANGLER);
+        canIceFish = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.ICE_FISHING);
     }
 
     @Override

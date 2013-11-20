@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.entity.Player;
 
 import com.gmail.nossr50.config.AdvancedConfig;
-import com.gmail.nossr50.datatypes.skills.SkillAbility;
+import com.gmail.nossr50.datatypes.skills.SecondaryAbilityType;
 import com.gmail.nossr50.datatypes.skills.SkillType;
 import com.gmail.nossr50.locale.LocaleLoader;
 import com.gmail.nossr50.skills.swords.Swords;
@@ -40,16 +40,16 @@ public class SwordsCommand extends SkillCommand {
 
         // BLEED
         if (canBleed) {
-            bleedLength = (skillValue >= AdvancedConfig.getInstance().getMaxBonusLevel(SkillAbility.BLEED)) ? Swords.bleedMaxTicks : Swords.bleedBaseTicks;
+            bleedLength = (skillValue >= AdvancedConfig.getInstance().getMaxBonusLevel(SecondaryAbilityType.BLEED)) ? Swords.bleedMaxTicks : Swords.bleedBaseTicks;
 
-            String[] bleedStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.BLEED, isLucky);
+            String[] bleedStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.BLEED, isLucky);
             bleedChance = bleedStrings[0];
             bleedChanceLucky = bleedStrings[1];
         }
 
         // COUNTER
         if (canCounter) {
-            String[] counterStrings = calculateAbilityDisplayValues(skillValue, SkillAbility.COUNTER, isLucky);
+            String[] counterStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.COUNTER, isLucky);
             counterChance = counterStrings[0];
             counterChanceLucky = counterStrings[1];
         }
@@ -57,8 +57,8 @@ public class SwordsCommand extends SkillCommand {
 
     @Override
     protected void permissionsCheck(Player player) {
-        canBleed = Permissions.skillAbilityEnabled(player, SkillAbility.BLEED);
-        canCounter = Permissions.skillAbilityEnabled(player, SkillAbility.COUNTER);
+        canBleed = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.BLEED);
+        canCounter = Permissions.secondaryAbilityEnabled(player, SecondaryAbilityType.COUNTER);
         canSerratedStrike = Permissions.serratedStrikes(player);
     }
 
