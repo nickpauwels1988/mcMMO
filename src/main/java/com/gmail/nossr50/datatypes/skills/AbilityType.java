@@ -213,12 +213,10 @@ public enum AbilityType {
      * @return true if the ability should activate, false otherwise
      */
     public boolean triggerCheck(Player player, Block block) {
-        switch (this) {
-            case BERSERK:
-                return blockCheck(block.getState()) && EventUtils.simulateBlockBreak(block, player, true);
-
-            default:
-                return false;
+        if (this == BERSERK) {
+            return blockCheck(block.getState()) && EventUtils.simulateBlockBreak(block, player, true);
         }
+
+        return false;
     }
 }
