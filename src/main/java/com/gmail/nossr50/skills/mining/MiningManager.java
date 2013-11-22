@@ -78,7 +78,7 @@ public class MiningManager extends SkillManager {
         boolean silkTouch = player.getItemInHand().containsEnchantment(Enchantment.SILK_TOUCH);
 
         for (int i = mcMMOPlayer.getAbilityMode(skill.getAbility()) ? 2 : 1; i != 0; i--) {
-            if (SkillUtils.activationSuccessful(SecondaryAbilityType.MINING_DOUBLE_DROPS, getPlayer(), getSkillLevel(), getActivationChance())) {
+            if (SkillUtils.activationSuccessful(SecondaryAbilityType.MINING_DOUBLE_DROPS, getPlayer(), getSkillLevel(), activationChance)) {
                 if (silkTouch) {
                     Mining.handleSilkTouchDrops(blockState);
                 }

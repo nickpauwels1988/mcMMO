@@ -82,7 +82,7 @@ public class UnarmedManager extends SkillManager {
      * @param defender The defending player
      */
     public void disarmCheck(Player defender) {
-        if (SkillUtils.activationSuccessful(SecondaryAbilityType.DISARM, getPlayer(), getSkillLevel(), getActivationChance()) && !hasIronGrip(defender)) {
+        if (SkillUtils.activationSuccessful(SecondaryAbilityType.DISARM, getPlayer(), getSkillLevel(), activationChance) && !hasIronGrip(defender)) {
             if (EventUtils.callDisarmEvent(defender).isCancelled()) {
                 return;
             }
@@ -98,7 +98,7 @@ public class UnarmedManager extends SkillManager {
      * Check for arrow deflection.
      */
     public boolean deflectCheck() {
-        if (SkillUtils.activationSuccessful(SecondaryAbilityType.DEFLECT, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (SkillUtils.activationSuccessful(SecondaryAbilityType.DEFLECT, getPlayer(), getSkillLevel(), activationChance)) {
             getPlayer().sendMessage(LocaleLoader.getString("Combat.ArrowDeflect"));
             return true;
         }

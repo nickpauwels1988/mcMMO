@@ -133,11 +133,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Axes.CriticalHit.MaxBonusLevel should be at least 1!");
         }
 
-        if (getAxesCriticalPVPModifier() < 1) {
+        if (getCriticalHitPVPModifier() < 1) {
             reason.add("Skills.Axes.CriticalHit.PVP_Modifier should be at least 1!");
         }
 
-        if (getAxesCriticalPVEModifier() < 1) {
+        if (getCriticalHitPVEModifier() < 1) {
             reason.add("Skills.Axes.CriticalHit.PVE_Modifier should be at least 1!");
         }
 
@@ -231,11 +231,11 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
             reason.add("Skills.Herbalism.GreenThumb.StageChange should be at least 1!");
         }
 
-        if (getMaxChance(SecondaryAbilityType.GREEN_THUMB) < 1) {
+        if (getMaxChance(SecondaryAbilityType.GREEN_THUMB_PLANT) < 1) {
             reason.add("Skills.Herbalism.GreenThumb.ChanceMax should be at least 1!");
         }
 
-        if (getMaxBonusLevel(SecondaryAbilityType.GREEN_THUMB) < 1) {
+        if (getMaxBonusLevel(SecondaryAbilityType.GREEN_THUMB_PLANT) < 1) {
             reason.add("Skills.Herbalism.GreenThumb.MaxBonusLevel should be at least 1!");
         }
 
@@ -638,8 +638,8 @@ public class AdvancedConfig extends AutoUpdateConfigLoader {
     public double getAxeMasteryBonusMax() { return config.getDouble("Skills.Axes.AxeMastery.MaxBonus", 4.0D); }
     public int getAxeMasteryMaxBonusLevel() { return config.getInt("Skills.Axes.AxeMastery.MaxBonusLevel", 200); }
 
-    public double getAxesCriticalPVPModifier() { return config.getDouble("Skills.Axes.CriticalHit.PVP_Modifier", 1.5D); }
-    public double getAxesCriticalPVEModifier() { return config.getDouble("Skills.Axes.CriticalHit.PVE_Modifier", 2.0D); }
+    public double getCriticalHitPVPModifier() { return config.getDouble("Skills.Axes.CriticalHit.PVP_Modifier", 1.5D); }
+    public double getCriticalHitPVEModifier() { return config.getDouble("Skills.Axes.CriticalHit.PVE_Modifier", 2.0D); }
 
     public double getGreaterImpactChance() { return config.getDouble("Skills.Axes.GreaterImpact.Chance", 25.0D); }
     public double getGreaterImpactModifier() { return config.getDouble("Skills.Axes.GreaterImpact.KnockbackModifier", 1.5D); }

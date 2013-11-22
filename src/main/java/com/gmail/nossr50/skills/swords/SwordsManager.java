@@ -45,7 +45,7 @@ public class SwordsManager extends SkillManager {
      * @param target The defending entity
      */
     public void bleedCheck(LivingEntity target) {
-        if (SkillUtils.activationSuccessful(SecondaryAbilityType.BLEED, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (SkillUtils.activationSuccessful(SecondaryAbilityType.BLEED, getPlayer(), getSkillLevel(), activationChance)) {
 
             if (getSkillLevel() >= AdvancedConfig.getInstance().getMaxBonusLevel(SecondaryAbilityType.BLEED)) {
                 BleedTimerTask.add(target, Swords.bleedMaxTicks);
@@ -79,7 +79,7 @@ public class SwordsManager extends SkillManager {
             return;
         }
 
-        if (SkillUtils.activationSuccessful(SecondaryAbilityType.COUNTER, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (SkillUtils.activationSuccessful(SecondaryAbilityType.COUNTER, getPlayer(), getSkillLevel(), activationChance)) {
             CombatUtils.dealDamage(attacker, damage / Swords.counterAttackModifier);
 
             getPlayer().sendMessage(LocaleLoader.getString("Swords.Combat.Countered"));

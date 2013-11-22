@@ -39,7 +39,7 @@ public enum SkillType {
     AXES(AxesManager.class, Color.AQUA, AbilityType.SKULL_SPLITTER, ToolType.AXE, ImmutableList.of(SecondaryAbilityType.ARMOR_IMPACT, SecondaryAbilityType.AXE_MASTERY, SecondaryAbilityType.CRITICAL_HIT, SecondaryAbilityType.GREATER_IMPACT)),
     EXCAVATION(ExcavationManager.class, Color.fromRGB(139, 69, 19), AbilityType.GIGA_DRILL_BREAKER, ToolType.SHOVEL, ImmutableList.of(SecondaryAbilityType.EXCAVATION_TREASURE_HUNTER)),
     FISHING(FishingManager.class, Color.NAVY, ImmutableList.of(SecondaryAbilityType.FISHERMANS_DIET, SecondaryAbilityType.FISHING_TREASURE_HUNTER, SecondaryAbilityType.ICE_FISHING, SecondaryAbilityType.MAGIC_HUNTER, SecondaryAbilityType.MASTER_ANGLER, SecondaryAbilityType.SHAKE)),
-    HERBALISM(HerbalismManager.class, Color.GREEN, AbilityType.GREEN_TERRA, ToolType.HOE, ImmutableList.of(SecondaryAbilityType.FARMERS_DIET, SecondaryAbilityType.GREEN_THUMB, SecondaryAbilityType.GREEN_THUMB_BLOCK, SecondaryAbilityType.HERBALISM_DOUBLE_DROPS, SecondaryAbilityType.HYLIAN_LUCK, SecondaryAbilityType.SHROOM_THUMB)),
+    HERBALISM(HerbalismManager.class, Color.GREEN, AbilityType.GREEN_TERRA, ToolType.HOE, ImmutableList.of(SecondaryAbilityType.FARMERS_DIET, SecondaryAbilityType.GREEN_THUMB_PLANT, SecondaryAbilityType.GREEN_THUMB_BLOCK, SecondaryAbilityType.HERBALISM_DOUBLE_DROPS, SecondaryAbilityType.HYLIAN_LUCK, SecondaryAbilityType.SHROOM_THUMB)),
     MINING(MiningManager.class, Color.GRAY, AbilityType.SUPER_BREAKER, ToolType.PICKAXE, ImmutableList.of(SecondaryAbilityType.MINING_DOUBLE_DROPS)),
     REPAIR(RepairManager.class, Color.SILVER, ImmutableList.of(SecondaryAbilityType.ARCANE_FORGING, SecondaryAbilityType.REPAIR_MASTERY, SecondaryAbilityType.SALVAGE, SecondaryAbilityType.SUPER_REPAIR)),
     SMELTING(SmeltingManager.class, Color.YELLOW, ImmutableList.of(SecondaryAbilityType.FLUX_MINING, SecondaryAbilityType.FUEL_EFFICIENCY, SecondaryAbilityType.SECOND_SMELT)),
@@ -52,7 +52,7 @@ public enum SkillType {
     private Color runescapeColor;
     private AbilityType ability;
     private ToolType tool;
-    private List<SecondaryAbilityType> skillAbilities;
+    private List<SecondaryAbilityType> secondaryAbilities;
 
     public static final List<String> SKILL_NAMES;
 
@@ -86,16 +86,16 @@ public enum SkillType {
         NON_CHILD_SKILLS = ImmutableList.copyOf(nonChildSkills);
     }
 
-    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, List<SecondaryAbilityType> skillAbilities) {
-        this(managerClass, runescapeColor, null, null, skillAbilities);
+    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, List<SecondaryAbilityType> secondaryAbilities) {
+        this(managerClass, runescapeColor, null, null, secondaryAbilities);
     }
 
-    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, AbilityType ability, ToolType tool, List<SecondaryAbilityType> skillAbilities) {
+    private SkillType(Class<? extends SkillManager> managerClass, Color runescapeColor, AbilityType ability, ToolType tool, List<SecondaryAbilityType> secondaryAbilities) {
         this.managerClass = managerClass;
         this.runescapeColor = runescapeColor;
         this.ability = ability;
         this.tool = tool;
-        this.skillAbilities = skillAbilities;
+        this.secondaryAbilities = secondaryAbilities;
     }
 
     public Class<? extends SkillManager> getManagerClass() {
@@ -148,7 +148,7 @@ public enum SkillType {
     }
 
     public List<SecondaryAbilityType> getSkillAbilities() {
-        return skillAbilities;
+        return secondaryAbilities;
     }
 
     public double getXpModifier() {

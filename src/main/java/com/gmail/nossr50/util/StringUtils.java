@@ -39,6 +39,7 @@ public class StringUtils {
             case EXCAVATION_TREASURE_HUNTER:
                 return "TreasureHunter";
             case GREEN_THUMB_BLOCK:
+            case GREEN_THUMB_PLANT:
                 return "GreenThumb";
             default:
                 return createPrettyEnumString(secondaryAbility.toString());

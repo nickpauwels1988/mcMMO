@@ -377,9 +377,9 @@ public class FishingManager extends SkillManager {
     public void shakeCheck(LivingEntity target) {
         fishingTries--; // Because autoclicking to shake is OK.
 
-        SecondaryAbilityWeightedActivationCheckEvent event = new SecondaryAbilityWeightedActivationCheckEvent(getPlayer(), SecondaryAbilityType.SHAKE, getShakeProbability() / getActivationChance());
-        mcMMO.p.getServer().getPluginManager().callEvent(event);
-        if ((event.getChance() * getActivationChance()) > Misc.getRandom().nextInt(getActivationChance())) {
+        SecondaryAbilityWeightedActivationCheckEvent activationEvent = new SecondaryAbilityWeightedActivationCheckEvent(getPlayer(), SecondaryAbilityType.SHAKE, getShakeProbability() / activationChance);
+        mcMMO.p.getServer().getPluginManager().callEvent(activationEvent);
+        if ((activationEvent.getChance() * activationChance) > Misc.getRandom().nextInt(activationChance)) {
             List<ShakeTreasure> possibleDrops = Fishing.findPossibleDrops(target);
 
             if (possibleDrops == null || possibleDrops.isEmpty()) {

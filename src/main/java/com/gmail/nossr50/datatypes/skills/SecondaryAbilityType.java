@@ -30,7 +30,7 @@ public enum SecondaryAbilityType {
 
     /* Herbalism */
     FARMERS_DIET,
-    GREEN_THUMB,
+    GREEN_THUMB_PLANT,
     GREEN_THUMB_BLOCK,
     HERBALISM_DOUBLE_DROPS,
     HYLIAN_LUCK,
@@ -74,6 +74,5 @@ public enum SecondaryAbilityType {
 
     /* Woodcutting */
     LEAF_BLOWER,
-    WOODCUTTING_DOUBLE_DROPS,
-    ;
+    WOODCUTTING_DOUBLE_DROPS;
 }

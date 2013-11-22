@@ -56,7 +56,7 @@ public class HerbalismCommand extends SkillCommand {
         if (canGreenThumbBlocks || canGreenThumbPlants) {
             greenThumbStage = calculateRank(skillValue, Herbalism.greenThumbStageMaxLevel, Herbalism.greenThumbStageChangeLevel);
 
-            String[] greenThumbStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.GREEN_THUMB, isLucky);
+            String[] greenThumbStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.GREEN_THUMB_PLANT, isLucky);
             greenThumbChance = greenThumbStrings[0];
             greenThumbChanceLucky = greenThumbStrings[1];
         }

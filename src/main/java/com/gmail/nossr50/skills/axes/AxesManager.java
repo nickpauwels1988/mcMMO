@@ -68,7 +68,7 @@ public class AxesManager extends SkillManager {
      * @param damage The amount of damage initially dealt by the event
      */
     public double criticalHit(LivingEntity target, double damage) {
-        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.CRITICAL_HIT, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.CRITICAL_HIT, getPlayer(), getSkillLevel(), activationChance)) {
             return 0;
         }
 

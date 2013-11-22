@@ -45,9 +45,9 @@ public class AxesCommand extends SkillCommand {
 
         // CRITICAL HIT
         if (canCritical) {
-            String[] criticalStrikeStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.CRITICAL_HIT, isLucky);
-            critChance = criticalStrikeStrings[0];
-            critChanceLucky = criticalStrikeStrings[1];
+            String[] criticalHitStrings = calculateAbilityDisplayValues(skillValue, SecondaryAbilityType.CRITICAL_HIT, isLucky);
+            critChance = criticalHitStrings[0];
+            critChanceLucky = criticalHitStrings[1];
         }
 
         // AXE MASTERY

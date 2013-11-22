@@ -340,7 +340,7 @@ public class BlockListener implements Listener {
             }
         }
         else if (mcMMOPlayer.getAbilityMode(AbilityType.BERSERK) && heldItem.getType() == Material.AIR) {
-            if (AbilityType.BERSERK.triggerCheck(player, block)) {
+            if (AbilityType.BERSERK.blockCheck(block.getState()) && EventUtils.simulateBlockBreak(block, player, true)) {
                 event.setInstaBreak(true);
                 player.playSound(block.getLocation(), Sound.ITEM_PICKUP, Misc.POP_VOLUME, Misc.getPopPitch());
             }

@@ -169,7 +169,7 @@ public class HerbalismManager extends SkillManager {
         }
 
         for (int i = greenTerra ? 2 : 1; i != 0; i--) {
-            if (SkillUtils.activationSuccessful(SecondaryAbilityType.HERBALISM_DOUBLE_DROPS, getPlayer(), getSkillLevel(), getActivationChance())) {
+            if (SkillUtils.activationSuccessful(SecondaryAbilityType.HERBALISM_DOUBLE_DROPS, getPlayer(), getSkillLevel(), activationChance)) {
                 for (ItemStack item : drops) {
                     Misc.dropItems(blockState.getLocation(), item, amount);
                 }
@@ -184,7 +184,7 @@ public class HerbalismManager extends SkillManager {
      * @return true if the ability was successful, false otherwise
      */
     public boolean processGreenThumbBlocks(BlockState blockState) {
-        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.GREEN_THUMB_BLOCK, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.GREEN_THUMB_BLOCK, getPlayer(), getSkillLevel(), activationChance)) {
             getPlayer().sendMessage(LocaleLoader.getString("Herbalism.Ability.GTh.Fail"));
             return false;
         }
@@ -199,7 +199,7 @@ public class HerbalismManager extends SkillManager {
      * @return true if the ability was successful, false otherwise
      */
     public boolean processHylianLuck(BlockState blockState) {
-        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.HYLIAN_LUCK, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.HYLIAN_LUCK, getPlayer(), getSkillLevel(), activationChance)) {
             return false;
         }
 
@@ -267,7 +267,7 @@ public class HerbalismManager extends SkillManager {
         playerInventory.removeItem(new ItemStack(Material.RED_MUSHROOM));
         player.updateInventory();
 
-        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.SHROOM_THUMB, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (!SkillUtils.activationSuccessful(SecondaryAbilityType.SHROOM_THUMB, getPlayer(), getSkillLevel(), activationChance)) {
             player.sendMessage(LocaleLoader.getString("Herbalism.Ability.ShroomThumb.Fail"));
             return false;
         }
@@ -311,7 +311,7 @@ public class HerbalismManager extends SkillManager {
             return;
         }
 
-        if (!greenTerra && !SkillUtils.activationSuccessful(SecondaryAbilityType.GREEN_THUMB, getPlayer(), getSkillLevel(), getActivationChance())) {
+        if (!greenTerra && !SkillUtils.activationSuccessful(SecondaryAbilityType.GREEN_THUMB_PLANT, getPlayer(), getSkillLevel(), activationChance)) {
             return;
         }
 
