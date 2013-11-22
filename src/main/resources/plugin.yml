@@ -1850,7 +1850,7 @@ permissions:
         default: false
         description: deprecated
         children:
-            mcmmo.ability.blastmining.all: true
+            mcmmo.ability.mining.blastmining.*: true
     mcmmo.ability.blastmining.all:
         default: false
         description: deprecated
