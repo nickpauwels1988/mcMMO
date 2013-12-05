@@ -70,7 +70,6 @@ public class FishingManager extends SkillManager {
     private Location fishingTarget;
     private Item fishingCatch;
     private Location hookLocation;
-
     public FishingManager(McMMOPlayer mcMMOPlayer) {
         super(mcMMOPlayer, SkillType.FISHING);
     }
@@ -198,10 +197,7 @@ public class FishingManager extends SkillManager {
         }
 
         // Make sure this is a body of water, not just a block of ice.
-        Biome biome = block.getBiome();
-        boolean isFrozenBiome = (biome == Biome.FROZEN_OCEAN || biome == Biome.FROZEN_RIVER || biome == Biome.TAIGA || biome == Biome.TAIGA_HILLS || biome == Biome.ICE_PLAINS || biome == Biome.ICE_MOUNTAINS);
-
-        if (!isFrozenBiome && (block.getRelative(BlockFace.DOWN, 3).getType() != Material.STATIONARY_WATER)) {
+        if (!Fishing.iceFishingBiomes.contains(block.getBiome()) && (block.getRelative(BlockFace.DOWN, 3).getType() != Material.STATIONARY_WATER)) {
             return false;
         }
 
@@ -281,12 +277,11 @@ public class FishingManager extends SkillManager {
     public void masterAngler(Fish hook) {
         Player player = getPlayer();
         Location location = hook.getLocation();
-        Biome biome = location.getBlock().getBiome();
         double biteChance = hook.getBiteChance();
 
         hookLocation = location;
 
-        if (biome == Biome.RIVER || biome == Biome.OCEAN) {
+        if (Fishing.masterAnglerBiomes.contains(location.getBlock().getBiome())) {
             biteChance = biteChance * AdvancedConfig.getInstance().getMasterAnglerBiomeModifier();
         }
 
