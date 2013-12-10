@@ -96,6 +96,11 @@ public final class ItemUtils {
             case IRON_SPADE:
             case STONE_SPADE:
             case WOOD_SPADE:
+            case DIAMOND_PICKAXE:
+            case GOLD_PICKAXE:
+            case IRON_PICKAXE:
+            case STONE_PICKAXE:
+            case WOOD_PICKAXE:
                 return true;
 
             default:
