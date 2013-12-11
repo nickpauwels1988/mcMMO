@@ -20,6 +20,12 @@ public class Excavation {
      */
     protected static List<ExcavationTreasure> getTreasures(BlockState blockState) {
         switch (blockState.getType()) {
+            case COBBLESTONE:
+                return TreasureConfig.getInstance().excavationFromCobblestone;
+
+            case STONE:
+                return TreasureConfig.getInstance().excavationFromStone;
+                
             case DIRT:
                 return TreasureConfig.getInstance().excavationFromDirt;
 
