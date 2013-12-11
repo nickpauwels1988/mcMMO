@@ -140,11 +140,7 @@ public final class ItemUtils {
         Material type = item.getType();
 
         switch (type) {
-            case DIAMOND_PICKAXE:
-            case GOLD_PICKAXE:
-            case IRON_PICKAXE:
-            case STONE_PICKAXE:
-            case WOOD_PICKAXE:
+            case BEDROCK:
                 return true;
 
             default:
