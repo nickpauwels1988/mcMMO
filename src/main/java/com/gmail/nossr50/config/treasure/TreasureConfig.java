@@ -349,7 +349,6 @@ public class TreasureConfig extends ConfigLoader {
                     if (dropList.contains("Cobblestone")) {
                         excavationFromSand.add(excavationTreasure);
                     }
-                    }
 
                     if (dropList.contains("Stone")) {
                         excavationFromSand.add(excavationTreasure);
