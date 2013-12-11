@@ -26,7 +26,9 @@ import com.gmail.nossr50.util.EnchantmentUtils;
 
 public class TreasureConfig extends ConfigLoader {
     private static TreasureConfig instance;
-
+    
+    public List<ExcavationTreasure> excavationFromCobblestone      = new ArrayList<ExcavationTreasure>();
+    public List<ExcavationTreasure> excavationFromStone      = new ArrayList<ExcavationTreasure>();
     public List<ExcavationTreasure> excavationFromDirt      = new ArrayList<ExcavationTreasure>();
     public List<ExcavationTreasure> excavationFromGrass     = new ArrayList<ExcavationTreasure>();
     public List<ExcavationTreasure> excavationFromSand      = new ArrayList<ExcavationTreasure>();
